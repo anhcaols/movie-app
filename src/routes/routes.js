@@ -1,5 +1,5 @@
-import Home from '~/Pages/Home/Home'
-import MovieDetails from '~/Pages/MovieDetails/MovieDetails'
+import Home from '~/pages/Home/Home'
+import MovieDetails from '~/pages/MovieDetails/MovieDetails'
 
 import config from '~/config'
 

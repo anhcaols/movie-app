@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 
 import { publicRoutes } from './routes'
-import MainLayout from './Layouts/MainLayout'
+import MainLayout from './layouts/MainLayout'
 function App() {
     return (
         <Routes>
