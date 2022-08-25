@@ -1,0 +1,39 @@
+.header-wrapper {
+    box-shadow: 0 5px 25px 0 rgb(0 0 0 / 30%);
+}
+
+.header-top  {
+    position: relative;
+    z-index: 2;
+
+}
+.header-search {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 60px;
+    width: 100%;
+    overflow: hidden;
+    animation: fadeTopBottom 0.4s ease;
+    background-color: #2b2b31;
+    z-index: 1;
+    box-shadow: 0 5px 25px 0 rgb(0 0 0 / 30%);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.navbar-item:hover {
+    .navbar-icon {
+        fill: #ff55a5;
+    }    
+}
+
+// animate
+@keyframes fadeTopBottom{
+    from {
+        bottom: 0;
+    }
+    to {
+        bottom: -60px;
+    }
+}

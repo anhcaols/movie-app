@@ -1,0 +1,43 @@
+.main-image {
+    background: center center / cover no-repeat;
+    height: 690.664px;
+}
+
+//custom btn slick
+.slick-prev {
+    z-index: 1;
+    width: 40px !important;
+    height: 40px !important;
+    left: -40px !important;
+
+}
+.slick-prev:before {
+    font-size: 30px !important;
+    color: #ff55a5!important;
+}
+
+.slick-next {
+    z-index: 1;
+    width: 40px !important;
+    height: 40px !important;
+    right:  -40px !important;
+
+}
+.slick-next:before {
+    font-size: 30px !important;
+    color: #ff55a5!important;
+}
+
+// list movie
+.movie-item {
+
+}
+.genre-movie a {
+    position: relative;
+    background-image: -webkit-linear-gradient(0deg, #ff55a5 0%, #ff5860 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #ff5860;
+    margin-right: 8px;
+    font-family: 'Open Sans', sans-serif;
+}
