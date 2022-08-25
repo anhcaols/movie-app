@@ -18,7 +18,7 @@ function Home() {
                     <h1 className="text-4xl text-[white] font-medium leading-[54px] mb-[17px]">
                         NEW ITEMS <span className="font-light">OF THIS SEASON</span>
                     </h1>
-                    <div className="btn-slider flex mb-[17px]">
+                    {/* <div className="btn-slider flex mb-[17px]">
                         <Button
                             className="w-10 outline-0 hover:border-[#ffffff33] "
                             outline
@@ -31,7 +31,7 @@ function Home() {
                             small
                             icon={<NextIcon className="w-6 h-auto fill-[#ffffffb3] hover:fill-[#fff]" />}
                         ></Button>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className=" container flex flex-row flex-wrap content-center justify-between items-center mx-auto mt-5 ">
