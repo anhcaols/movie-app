@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-
-function SubnavItem({ title, to = false, href = false,icon = false }) {
+import classNames from 'classnames'
+import Image from '~/components/Image/Image'
+function SubnavItem({
+    className,
+    classNameImg,
+    title,
+    to = false,
+    href = false,
+    icon = false,
+    fontBase = false,
+    img = false,
+}) {
     let Comp = Link
     const props = {}
     if (to) {
@@ -11,17 +21,25 @@ function SubnavItem({ title, to = false, href = false,icon = false }) {
         props.href = href
         Comp = 'a'
     }
+    const classes = classNames(
+        `text-base flex items-center leading-10 text-[#ffffffbf] ${fontBase ? '' : 'font-light'} hover:text-primary`,
+        {
+            [className]: className,
+        },
+    )
     return (
         <li>
-            <Comp {...props} className="text-base flex items-center leading-10 text-[#ffffffbf] font-light hover:text-primary">
-                {icon && <span className='mr-2'>{icon}</span>}
+            <Comp {...props} className={classes}>
+                {icon && <span className="mr-2">{icon}</span>}
                 {title}
+                {img && <Image className={classNames({ [classNameImg]: classNameImg })} src={img} alt="app-store" />}
             </Comp>
         </li>
     )
 }
 SubnavItem.propTypes = {
-    title: PropTypes.string.isRequired,
+    classNames: PropTypes.string,
+    title: PropTypes.string,
     to: PropTypes.node,
     href: PropTypes.node,
 }

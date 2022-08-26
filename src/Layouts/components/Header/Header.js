@@ -5,7 +5,7 @@ import 'tippy.js/animations/perspective.css'
 import 'tippy.js/dist/tippy.css'
 
 import './Header.scss'
-import images from '~/assets/Image'
+import images from '~/assets/images'
 import config from '~/config'
 import {
     DropMenuIcon,
@@ -91,7 +91,7 @@ function Header() {
                             placement="top-start"
                             offset={[0, 0]}
                         >
-                            <div className="navbar-item pt-[30px] pb-[30px] cursor-pointer text-text ">
+                            <div className="navbar-item h-20 flex items-center cursor-pointer text-text ">
                                 <MoreMenuIcon className="w-5 h- fill-text hover:fill-[#ff55a5]" />
                             </div>
                         </Tippy>
