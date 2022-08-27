@@ -7,9 +7,9 @@ import SimpleSlider from '~/pages/Home/Slider/Slider'
 import Navbar, { NavbarItem } from '~/components/Navbar'
 import TvSeriesTab from './TvSeriesTab/TvSeriesTab'
 import MovieTab from './MovieTab/MovieTab'
-import NewReleases from './NewReleases/NewReleases'
+import NewReleases from './NewReleasesTab/NewReleasesTab'
 import CartoonsTab from './CartoonsTab/CartoonsTab'
-import ExpectedPremiere from './ExpectedPremiere/ExpectedPremiere'
+import ExpectedPremiereTab from './ExpectedPremiereTab/ExpectedPremiereTab'
 
 function Home() {
     const [toggleState, setToggleState] = useState(1)
@@ -117,7 +117,7 @@ function Home() {
                         <h2 className="text-4xl text-[#fff] leading-[100%] mt-[70px] mb-[10px]">Expected premiere</h2>
                     </div>
                 </div>
-                <ExpectedPremiere />
+                <ExpectedPremiereTab />
                 <div className=" container flex flex-row flex-wrap content-center justify-center items-center mx-auto pl-[15px] pr-[15px] pb-[70px]">
                     <Button className="mt-[-20px] w-[150px] " primary large>
                         Show more
