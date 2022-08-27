@@ -68,7 +68,7 @@ function Footer() {
                     <h4 className="text-[#ffffff99] text-sm">
                         © FlixGo, 2018—2022. Create by{' '}
                         <Link className="hover:underline" to={'/'}>
-                            Dmitry Volkov
+                            Dmitry Volkov anh
                         </Link>
                         .
                     </h4>
