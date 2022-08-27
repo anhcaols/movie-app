@@ -22,8 +22,9 @@ import Subnav from '~/components/Navbar/Subnav/Subnav'
 import SubnavItem from '~/components/Navbar/Subnav/SubnavItem'
 import Button from '~/components/Button/Button'
 import Search from './Search'
+import Image from '~/components/Image/Image'
 
-const userCurrent = false
+const userCurrent = true    
 function Header() {
     const [showSearch, setShowSearch] = useState(false)
     const [iconSearch, setIconSearch] = useState(false)
@@ -147,9 +148,9 @@ function Header() {
                                     placement="top-end"
                                     offset={[18, 22]}
                                 >
-                                    <img
+                                    <Image
                                         className=" w-9 h-w-9 rounded-full cursor-pointer"
-                                        src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/205d4812d9f51f6bc23308d18580f805~c5_100x100.jpeg?x-expires=1661533200&x-signature=Lha0r7eMxx2J60XUM4W5Ct%2BEVRM%3D"
+                                        src=""
                                         alt="img"
                                     />
                                 </Tippy>

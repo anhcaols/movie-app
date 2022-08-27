@@ -9,7 +9,7 @@ function MainLayout({ children }) {
             <main className="main" style={{ marginTop: '80px' }}>
                 {children}
             </main>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

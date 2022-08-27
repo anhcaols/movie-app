@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Home.scss'
 import images from '~/assets/images'
 import Button from '~/components/Button/Button'
@@ -10,15 +10,43 @@ import MovieTab from './MovieTab/MovieTab'
 import NewReleases from './NewReleasesTab/NewReleasesTab'
 import CartoonsTab from './CartoonsTab/CartoonsTab'
 import ExpectedPremiereTab from './ExpectedPremiereTab/ExpectedPremiereTab'
+import axios from 'axios'
 
 function Home() {
     const [toggleState, setToggleState] = useState(1)
+    const [listFilm, setListFilm] = useState([])
+    const [genres, setGenres] = useState()
+    //Call Api
+    useEffect(() => {}, [])
+    const fetchApiMovie = async () => {
+        try {
+            const result = await axios.get(
+                'https://api.themoviedb.org/3/movie/297762/similar?api_key=e9e9d8da18ae29fc430845952232787c&language=en-US&page=1',
+            )
+            setListFilm(result.data.results)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    fetchApiMovie()
+
+    const fetchApiGenre = async () => {
+        try {
+            const result = await axios.get(
+                'https://api.themoviedb.org/3/genre/movie/list?api_key=e9e9d8da18ae29fc430845952232787c&language=en-US',
+            )
+            setGenres(result.data.genres)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    fetchApiGenre()
     return (
         <div className="main-movie relative bg-bgd">
             {/* Background Image */}
             <div className="main-image opacity-[0.07] " style={{ backgroundImage: `url(${images.homeBg4})` }}></div>
             {/* Movie content  */}
-            <div className="movie-content w-full absolute top-[70px] ">
+            <div className="movie-content w-full absolute top-[70px] z-10">
                 {/* Title and button */}
                 <div
                     className="movie-title container flex flex-row flex-wrap content-center justify-between items-center
@@ -44,7 +72,7 @@ function Home() {
                 </div>
                 {/* Slider */}
                 <div className="movie-list-wrapper container flex flex-row flex-wrap content-center justify-between items-center mx-auto ">
-                    <SimpleSlider />
+                    <SimpleSlider data={listFilm} genres={genres} />
                 </div>
             </div>
 
@@ -101,13 +129,13 @@ function Home() {
                     </div>
                 </div>
                 {/* Tab NEW RELEASES */}
-                <NewReleases className={toggleState === 1 ? 'active' : ''} />
+                <NewReleases data={listFilm} genres={genres} className={toggleState === 1 ? 'active' : ''} />
                 {/* Tab MOVIES */}
-                <MovieTab className={toggleState === 2 ? 'active' : ''} />
+                <MovieTab data={listFilm} genres={genres} className={toggleState === 2 ? 'active' : ''} />
                 {/*  TV SERIES */}
-                <TvSeriesTab className={toggleState === 3 ? 'active' : ''} />
+                <TvSeriesTab data={listFilm} genres={genres} className={toggleState === 3 ? 'active' : ''} />
                 {/*  CARTOONS*/}
-                <CartoonsTab className={toggleState === 4 ? 'active' : ''} />
+                <CartoonsTab data={listFilm} genres={genres} className={toggleState === 4 ? 'active' : ''} />
             </div>
 
             {/* Expected premiere */}
@@ -117,7 +145,7 @@ function Home() {
                         <h2 className="text-4xl text-[#fff] leading-[100%] mt-[70px] mb-[10px]">Expected premiere</h2>
                     </div>
                 </div>
-                <ExpectedPremiereTab />
+                <ExpectedPremiereTab data={listFilm} genres={genres} />
                 <div className=" container flex flex-row flex-wrap content-center justify-center items-center mx-auto pl-[15px] pr-[15px] pb-[70px]">
                     <Button className="mt-[-20px] w-[150px] " primary large>
                         Show more

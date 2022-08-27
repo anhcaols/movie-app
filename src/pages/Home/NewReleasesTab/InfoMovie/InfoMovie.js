@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import images from '~/assets/images'
 import CardImage from '~/components/Card/CardImage'
-function InfoMovie({ data }) {
+function InfoMovie({ data, genresName }) {
     return (
         <div className="info-item flex overflow-hidden">
             <CardImage
@@ -19,12 +19,14 @@ function InfoMovie({ data }) {
                     </h4>
                 </Link>
                 <div className="genre-movie">
-                    <Link className="mr-2 text-[14px] font-thin leading-[30px]" to={''}>
-                        {/* {data.genre_ids[0]} */}Action
-                    </Link>
-                    <Link className="mr-2 text-[14px] font-thin" to={''}>
-                        {/* {data.genre_ids[1]} */}
-                    </Link>
+                    {genresName !== undefined &&
+                        genresName.slice(0, 2).map((genre, index) => {
+                            return (
+                                <Link key={index} className="mr-2 text-[14px] font-thin leading-[30px]" to={''}>
+                                    {genre}
+                                </Link>
+                            )
+                        })}
                     <div className="flex items-center mt-[5px]">
                         <img className="w-4 mr-1" src={images.star} alt="start" />
                         <span className="text-[#fff]">{data.vote_count}</span>
@@ -36,9 +38,7 @@ function InfoMovie({ data }) {
                         </button>
                     </div>
                     <div className="info-desc mt-[20px]">
-                        <p>
-                            {data.overview}
-                        </p>
+                        <p>{data.overview}</p>
                     </div>
                 </div>
             </div>

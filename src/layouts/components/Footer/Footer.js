@@ -14,7 +14,7 @@ function Footer() {
                         <Subnav>
                             <SubnavItem
                                 fontBase
-                                className="text-[#fff] font-medium"
+                                className="text-[#fff] font-medium leading-8"
                                 title="Download Our App"
                                 to={'/'}
                             />
@@ -24,7 +24,7 @@ function Footer() {
                     </div>
                     <div className="resources">
                         <Subnav>
-                            <SubnavItem fontBase className="mb-2 text-[#fff] font-medium" title="Resources" to={'/'} />
+                            <SubnavItem fontBase className="mb-2 text-[#fff] font-medium leading-8" title="Resources" to={'/'} />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="About Us" to={'/'} />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="Pricing Plan" to={'/'} />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="Help Center" to={'/'} />
@@ -32,7 +32,7 @@ function Footer() {
                     </div>
                     <div className="legal">
                         <Subnav>
-                            <SubnavItem fontBase className="mb-2 text-[#fff] font-medium" title="Legal" to={'/'} />
+                            <SubnavItem fontBase className="mb-2 text-[#fff] font-medium leading-8" title="Legal" to={'/'} />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="Terms of Use" to={'/'} />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="Privacy Policy" to={'/'} />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="Security" to={'/'} />
@@ -40,7 +40,7 @@ function Footer() {
                     </div>
                     <div className="Contact">
                         <Subnav>
-                            <SubnavItem fontBase className="mb-2 text-[#fff] font-medium" title="Contact" to={'/'} />
+                            <SubnavItem fontBase className="mb-2 text-[#fff] font-medium leading-8" title="Contact" to={'/'} />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="+84.395.562.788" to={'/'} />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="caotheanhls2001@gmail.com" to={'/'} />
                             <div className="social-media flex items-center h-[40px]">
@@ -68,7 +68,7 @@ function Footer() {
                     <h4 className="text-[#ffffff99] text-sm">
                         © FlixGo, 2018—2022. Create by{' '}
                         <Link className="hover:underline" to={'/'}>
-                            Dmitry Volkov anh
+                            Dmitry Volkov
                         </Link>
                         .
                     </h4>
