@@ -9,7 +9,7 @@ function Card({ data = {}, genresName }) {
     return (
         <div className="movie-item px-[15px] mt-[30px] flex flex-col">
             <CardImage
-                onClick={() => {}}
+                onClick={{}}
                 src={` https://image.tmdb.org/t/p/original${data.poster_path}`}
                 alt={data.name}
                 to={config.routes.detail}

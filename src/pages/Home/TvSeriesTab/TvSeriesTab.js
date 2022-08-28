@@ -31,5 +31,7 @@ function TvSeries({ className, data, genres = [] }) {
 }
 TvSeries.propTypes = {
     classNames: PropTypes.string,
+    data: PropTypes.array,
+    genres: PropTypes.array,
 }
 export default TvSeries

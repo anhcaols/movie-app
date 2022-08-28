@@ -14,15 +14,15 @@ export const publicRoutes = [
     },
     {
         path: config.routes.pricing,
-        component: MovieDetails,
+        component: Home,
     },
     {
         path: config.routes.help,
-        component: MovieDetails,
+        component: Home,
     },
     {
         path: config.routes.login,
-        component: MovieDetails,
+        component: Home,
     },
 ]
 export const privateRoutes = []

@@ -14,7 +14,7 @@ function Footer() {
                         <Subnav>
                             <SubnavItem
                                 fontBase
-                                className="text-[#fff] font-medium leading-8"
+                                className=" hover:text-[#fff] cursor-default text-[#fff] font-medium leading-8"
                                 title="Download Our App"
                                 to={'/'}
                             />
@@ -24,7 +24,12 @@ function Footer() {
                     </div>
                     <div className="resources">
                         <Subnav>
-                            <SubnavItem fontBase className="mb-2 text-[#fff] font-medium leading-8" title="Resources" to={'/'} />
+                            <SubnavItem
+                                fontBase
+                                className="mb-2 hover:text-[#fff] cursor-default text-[#fff] font-medium leading-8"
+                                title="Resources"
+                                to={'/'}
+                            />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="About Us" to={'/'} />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="Pricing Plan" to={'/'} />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="Help Center" to={'/'} />
@@ -32,7 +37,12 @@ function Footer() {
                     </div>
                     <div className="legal">
                         <Subnav>
-                            <SubnavItem fontBase className="mb-2 text-[#fff] font-medium leading-8" title="Legal" to={'/'} />
+                            <SubnavItem
+                                fontBase
+                                className="mb-2 hover:text-[#fff] cursor-default text-[#fff] font-medium leading-8"
+                                title="Legal"
+                                to={'/'}
+                            />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="Terms of Use" to={'/'} />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="Privacy Policy" to={'/'} />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="Security" to={'/'} />
@@ -40,25 +50,38 @@ function Footer() {
                     </div>
                     <div className="Contact">
                         <Subnav>
-                            <SubnavItem fontBase className="mb-2 text-[#fff] font-medium leading-8" title="Contact" to={'/'} />
+                            <SubnavItem
+                                fontBase
+                                className="mb-2 hover:text-[#fff] cursor-default text-[#fff] font-medium leading-8"
+                                title="Contact"
+                                to={'/'}
+                            />
                             <SubnavItem className="leading-8 text-[#ffffff99]" title="+84.395.562.788" to={'/'} />
-                            <SubnavItem className="leading-8 text-[#ffffff99]" title="caotheanhls2001@gmail.com" to={'/'} />
+                            <SubnavItem
+                                className="leading-8 text-[#ffffff99]"
+                                title="caotheanhls2001@gmail.com"
+                                to={'/'}
+                            />
                             <div className="social-media flex items-center h-[40px]">
                                 <SubnavItem
                                     icon={<FacebookIcon className="fill-[#3b5999] w-[22px] h-[22px] mr-[12px]" />}
-                                    to={'/'}
+                                    href={'https://www.facebook.com/anhcao.201'}
+                                    target="_blank"
                                 />
                                 <SubnavItem
                                     icon={<InstagramIcon className="fill-[#ff55a5] w-[22px] h-[22px] mr-[12px]" />}
-                                    to={'/'}
+                                    href={'https://www.instagram.com/__anhcao.201/'}
+                                    target="_blank"
                                 />
                                 <SubnavItem
                                     icon={<TwitterIcon className="fill-[#1da1f2] w-[22px] h-[22px] mr-[12px]" />}
-                                    to={'/'}
+                                    href={'/'}
+                                    target="_blank"
                                 />
                                 <SubnavItem
                                     icon={<VkIcon className="fill-[#45668e] w-[22px] h-[22px] mr-[12px]" />}
-                                    to={'/'}
+                                    href={'/'}
+                                    target="_blank"
                                 />
                             </div>
                         </Subnav>

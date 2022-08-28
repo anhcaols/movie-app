@@ -1,19 +1,51 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+
 import images from '~/assets/images'
 import { MoreMenuIcon } from '~/components/Icons'
 import Image from '~/components/Image/Image'
-import '~/pages/Home/Home.scss'
+import Navbar, { NavbarItem } from '~/components/Navbar'
+import CommentTab from './CommentTab/CommentTab'
+import ReviewTab from './ReviewTab/ReviewTab'
 import './MovieDetails.scss'
-function MovieDetails({data}) {
+import Card from '~/components/Card/Card'
+import * as movieService from '~/services/movieService'
+import * as genresService from '~/services/genresService'
+function MovieDetails() {
+    const [listFilm, setListFilm] = useState([])
+    const [toggleState, setToggleState] = useState(1)
     const [toggleDesc, setToggleDesc] = useState(false)
+    const [genres, setGenres] = useState()
+    //Call Api
+    useEffect(() => {
+        //Api Movie
+        const fetchApiMovie = async () => {
+            try {
+                const result = await movieService.movie()
+                setListFilm(result)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchApiMovie()
+        // Api Genre Movie
+        const fetchApiGenre = async () => {
+            try {
+                const result = await genresService.genres()
+                setGenres(result)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchApiGenre()
+    }, [])
     const handleMoreDesc = () => {
         setToggleDesc(!toggleDesc)
     }
     return (
-        <div className="details-wrapper  relative h-[2000px]">
+        <div className="details-wrapper  relative">
             <div className="image-details " style={{ backgroundImage: `url(${images.homeBg})` }}></div>
-            <div className="movie-detail w-full absolute top-0 bg-bgd ">
+            <div className="movie-detail w-full top-0 bg-bgd ">
                 <div className="container top-0 flex flex-row flex-wrap items-center mx-auto pl-[15px] pr-[15px]">
                     <h2 className=" z-10 text-4xl text-[#fff] leading-[50px] font-light mb-[30px] mt-[70px]">
                         I Dream in Another Language
@@ -77,7 +109,83 @@ function MovieDetails({data}) {
                                 </div>
                             </div>
                         </div>
+                        <div className="video-movie relative">
+                            <video
+                                className="z-10"
+                                src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
+                                controls
+                                poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+                            />
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div className="content-item-wrapper">
+                <div className="content-header">
+                    <div className=" container flex flex-row flex-wrap content-center items-center mx-auto pl-[15px] pr-[15px]">
+                        <div className="content-head">
+                            <h2 className="text-4xl text-[#fff] leading-[100%] mt-[25px] mb-[10px]">New items</h2>
+                            <Navbar className="ml-0">
+                                <NavbarItem
+                                    activeNewItem
+                                    onClick={() => {
+                                        setToggleState(1)
+                                    }}
+                                    fontThin
+                                    className={`hover:text-[#fff] h-[50px] mr-[30px] text-[#ffffff80]
+                                        ${toggleState === 1 && 'active'} `}
+                                    title="COMMENTS"
+                                />
+                                <NavbarItem
+                                    activeNewItem
+                                    onClick={() => {
+                                        setToggleState(2)
+                                    }}
+                                    fontThin
+                                    className={`hover:text-[#fff] h-[50px] mr-[30px] text-[#ffffff80]
+                                        ${toggleState === 2 && 'active'} `}
+                                    title="REVIEWS"
+                                />
+                            </Navbar>
+                        </div>
+                    </div>
+                </div>
+                <div className="pb-[70px] bg-bgd">
+                    <div className={'comment-wrapper bg-bgd'}>
+                        <div className="container flex flex-row flex-wrap content-center items-center mx-auto pt-[10px]">
+                            <div className="flex flex-col xl:flex-row ">
+                                <CommentTab className={toggleState === 1 ? 'active' : ''} />
+                                <ReviewTab className={toggleState === 2 ? 'active' : ''} />
+                                <div className="w-[100%] lg:w-[33.33333%]">
+                                    <div className="content-head px-[15px]">
+                                        <h2 className="text-[30px] font-extralight text-[#fff] leading-[100%] mt-[30px] ">
+                                            You may also like...
+                                        </h2>
+                                    </div>
+                                    <div className=" grid grid-cols-2 ">
+                                        {listFilm.slice(0, 4).map((film) => {
+                                            return (
+                                                <Card
+                                                    genresName={film.genre_ids.map((item_id) => {
+                                                        let nameGenre
+                                                        genres.forEach((item_id_name) => {
+                                                            if (item_id === item_id_name.id) {
+                                                                nameGenre = item_id_name.name
+                                                            }
+                                                        })
+                                                        return nameGenre
+                                                    })}
+                                                    key={film.id}
+                                                    data={film}
+                                                />
+                                            )
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* <CommentTab /> */}
                 </div>
             </div>
         </div>

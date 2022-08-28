@@ -30,5 +30,7 @@ function CartoonsTab({ className, data, genres =[]}) {
 }
 CartoonsTab.propTypes = {
     classNames: PropTypes.string,
+    data: PropTypes.array,
+    genres: PropTypes.array,
 }
 export default CartoonsTab

@@ -30,5 +30,7 @@ function MovieTab({ className, data, genres = [] }) {
 }
 MovieTab.propTypes = {
     classNames: PropTypes.string,
+    data: PropTypes.array,
+    genres: PropTypes.array,
 }
 export default MovieTab

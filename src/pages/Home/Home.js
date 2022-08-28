@@ -10,37 +10,37 @@ import MovieTab from './MovieTab/MovieTab'
 import NewReleases from './NewReleasesTab/NewReleasesTab'
 import CartoonsTab from './CartoonsTab/CartoonsTab'
 import ExpectedPremiereTab from './ExpectedPremiereTab/ExpectedPremiereTab'
-import axios from 'axios'
+import * as movieService from '~/services/movieService'
+import * as genresService from '~/services/genresService'
 
 function Home() {
     const [toggleState, setToggleState] = useState(1)
     const [listFilm, setListFilm] = useState([])
     const [genres, setGenres] = useState()
     //Call Api
-    useEffect(() => {}, [])
-    const fetchApiMovie = async () => {
-        try {
-            const result = await axios.get(
-                'https://api.themoviedb.org/3/movie/297762/similar?api_key=e9e9d8da18ae29fc430845952232787c&language=en-US&page=1',
-            )
-            setListFilm(result.data.results)
-        } catch (error) {
-            console.log(error)
+    useEffect(() => {
+        //Api Movie
+        const fetchApiMovie = async () => {
+            try {
+                const result = await movieService.movie()
+                setListFilm(result)
+            } catch (error) {
+                console.log(error)
+            }
         }
-    }
-    fetchApiMovie()
+        fetchApiMovie()
+        // Api Genre Movie
+        const fetchApiGenre = async () => {
+            try {
+                const result = await genresService.genres()
+                setGenres(result)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchApiGenre()
+    }, [])
 
-    const fetchApiGenre = async () => {
-        try {
-            const result = await axios.get(
-                'https://api.themoviedb.org/3/genre/movie/list?api_key=e9e9d8da18ae29fc430845952232787c&language=en-US',
-            )
-            setGenres(result.data.genres)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    fetchApiGenre()
     return (
         <div className="main-movie relative bg-bgd">
             {/* Background Image */}
@@ -56,7 +56,7 @@ function Home() {
                         NEW ITEMS <span className="font-light">OF THIS SEASON</span>
                     </h1>
                     <div className="btn-slider flex mb-[17px]">
-                        <Button
+                        {/* <Button
                             className="w-10 outline-0 hover:border-[#ffffff33] "
                             outline
                             small
@@ -67,7 +67,7 @@ function Home() {
                             outline
                             small
                             icon={<NextIcon className="w-6 h-auto fill-[#ffffffb3] hover:fill-[#fff]" />}
-                        ></Button>
+                        ></Button> */}
                     </div>
                 </div>
                 {/* Slider */}

@@ -11,9 +11,10 @@ function SubnavItem({
     icon = false,
     fontBase = false,
     img = false,
+    ...passProp
 }) {
     let Comp = Link
-    const props = {}
+    const props = { ...passProp }
     if (to) {
         props.to = to
     }
