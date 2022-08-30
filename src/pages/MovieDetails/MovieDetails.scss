@@ -68,3 +68,90 @@
 .comment-list.active {
     display: block;
 }
+
+// comment text area
+.form__input {
+    border: 1px solid transparent;
+    height: 50px;
+    color: #fff;
+    padding: 0 20px;
+    background-color: #2b2b31;
+    margin-bottom: 20px;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    outline: none;
+    &:focus {
+        border-color: var(--primary);
+    }
+}
+.form__textarea {
+    border: 1px solid transparent;
+    height: 150px;
+    position: relative;
+    color: #fff;
+    font-size: 16px;
+    width: 100%;
+    color: #fff;
+    padding: 15px 20px;
+    resize: none;
+    background-color: #2b2b31;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 4px;
+    outline: none;
+    &:focus {
+        border-color: var(--primary);
+    }
+}
+/* Progress */
+.number-rate {
+    margin-left: 20px;
+    margin-top: -11px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+}
+
+//Custom 
+.noUi-horizontal {
+    height: 5px !important;
+}
+.noUi-target {
+    width: 150px;
+    border-radius: 4px;
+    border: none !important;
+    background-color: #ffffff0d !important;
+    box-shadow: none !important;
+    cursor: pointer;
+}
+.noUi-connects {
+    border-radius: 4px;
+}
+.noUi-connect {
+    border: none !important;
+    background-image: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%) !important;
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 16px !important;
+    height: 16px !important;
+    top: -10px;
+    left: 7px !important;
+    background-color: #ff5860 !important;
+}
+.noUi-handle:before {
+    display: none !important;
+}
+.noUi-handle:after {
+    display: none !important;
+}
+.noUi-handle {
+    border: none !important;
+    cursor: default;
+    box-shadow: none !important;
+    border-radius: 50px !important;
+}
+.noUi-touch-area {
+    cursor: pointer;
+}

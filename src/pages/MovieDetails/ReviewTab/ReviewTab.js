@@ -1,8 +1,28 @@
+import { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import Nouislider from 'nouislider-react'
+import 'nouislider/distribute/nouislider.css'
+
 import Comment from '~/components/Comment/Comment'
 import '~/pages/MovieDetails/MovieDetails.scss'
+import Button from '~/components/Button/Button'
 function ReviewTab({ className }) {
+    const progressAreaRef = useRef()
+    const [rate, setRate] = useState(0)
+
+    const update = (values) => {
+        setRate(values)
+    }
+
+    const handleProgress = (e) => {
+        // const progressAreaWidth = progressAreaRef.current.clientWidth
+        // let valueOffSetX = e.nativeEvent.offsetX
+        // progressBarRef.current.style.width = valueOffSetX + 'px'
+        // progressBarBallRef.current.style.marginLeft = valueOffSetX + 'px'
+        // const num = ((valueOffSetX / progressAreaWidth) * 10).toFixed(1)
+        // rateRef.current.innerText = num
+    }
     return (
         <div className={classNames('comment-list  px-[15px] w-[100%] lg:w-[66.666667%]', { [className]: className })}>
             <Comment
@@ -30,6 +50,36 @@ function ReviewTab({ className }) {
                            believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
                            anything embarrassing hidden in the middle of text."
             />
+            {/* text area */}
+            <div className="comment-text-wrapper mt-[30px] p-[20px] bg-[#28282d] ">
+                <form action="#" className="flex flex-col">
+                    <input className="form__input placeholder:text-[#ffffff80]" placeholder="Title" />
+                    <textarea className="form__textarea  placeholder:text-[#ffffff80]" placeholder="Review" />
+                    <div className="mt-[30px] text-[15px]  ">
+                        <p className="mb-[10px] h-[20px] text-[#ffffff80]">Rate:</p>
+                        <div ref={progressAreaRef} className="flex  relative" onClick={handleProgress}>
+                            <Nouislider
+                                behaviour="tap-snap"
+                                connect={[true, false]}
+                                start={0}
+                                onUpdate={update}
+                                range={{ min: [0], max: [10] }}
+                            />
+                            <p className="number-rate">{rate}</p>
+                        </div>
+                    </div>
+                    <Button
+                        onClick={(e) => {
+                            e.preventDefault()
+                        }}
+                        primary
+                        large
+                        className="mt-[25px] w-[150px]"
+                    >
+                        SEND
+                    </Button>
+                </form>
+            </div>
         </div>
     )
 }

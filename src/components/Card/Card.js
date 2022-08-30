@@ -31,7 +31,7 @@ function Card({ data = {}, genresName }) {
                         })}
                 </div>
                 <div className="flex ">
-                    <img className="w-4 mr-1" src={images.star} alt="start" /> <span>{data.vote_count}</span>
+                    <img className="w-4 mr-1" src={images.star} alt="start" /> <span>{data.vote_average}</span>
                 </div>
             </div>
         </div>

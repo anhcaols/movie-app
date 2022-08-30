@@ -24,7 +24,7 @@ import Button from '~/components/Button/Button'
 import Search from './Search'
 import Image from '~/components/Image/Image'
 
-const userCurrent = true    
+const userCurrent = false    
 function Header() {
     const [showSearch, setShowSearch] = useState(false)
     const [iconSearch, setIconSearch] = useState(false)

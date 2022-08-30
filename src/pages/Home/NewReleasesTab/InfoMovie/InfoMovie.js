@@ -20,7 +20,7 @@ function InfoMovie({ data, genresName }) {
                 </Link>
                 <div className="genre-movie">
                     {genresName !== undefined &&
-                        genresName.slice(0, 2).map((genre, index) => {
+                        genresName.slice(0,1).map((genre, index) => {
                             return (
                                 <Link key={index} className="mr-2 text-[14px] font-thin leading-[30px]" to={''}>
                                     {genre}
@@ -29,7 +29,7 @@ function InfoMovie({ data, genresName }) {
                         })}
                     <div className="flex items-center mt-[5px]">
                         <img className="w-4 mr-1" src={images.star} alt="start" />
-                        <span className="text-[#fff]">{data.vote_count}</span>
+                        <span className="text-[#fff]">{data.vote_average}</span>
                         <button className="cursor-default ml-[15px] border border-solid border-[#ffffff29] px-[5px] pt-[5px] pb-[4px] rounded mr-[10px] text-[12px] font-bold text-[#ffffffa6] leading-[100%]">
                             HD
                         </button>

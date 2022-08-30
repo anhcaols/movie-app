@@ -10,6 +10,7 @@
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "css-reset-and-normalize": "^2.3.6",
+    "nouislider-react": "^3.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",

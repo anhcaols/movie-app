@@ -48,7 +48,7 @@ function MovieDetails() {
             <div className="movie-detail w-full top-0 bg-bgd ">
                 <div className="container top-0 flex flex-row flex-wrap items-center mx-auto pl-[15px] pr-[15px]">
                     <h2 className=" z-10 text-4xl text-[#fff] leading-[50px] font-light mb-[30px] mt-[70px]">
-                        I Dream in Another Language
+                        The Batman vs. Dracula
                     </h2>
                 </div>
                 <div className="container top-0 flex flex-row flex-wrap items-center mx-auto pl-[15px] pr-[15px] pb-[70px]">
@@ -57,14 +57,13 @@ function MovieDetails() {
                             <div className="img-details w-[210px] flex-shrink-0 mr-[20px]">
                                 <Image
                                     className="w-full rounded"
-                                    src="	https://image.tmdb.org/t/p/original/75ot83QOkc02vujyzmIbumQCU6Y.jpg
-"
+                                    src="https://image.tmdb.org/t/p/original/dBysIm8mEhvlemR5xeWUcE0P4TN.jpg"
                                 />
                             </div>
                             <div className="card-details">
                                 <div className="flex">
                                     <img className="w-4 mr-1" src={images.star} alt="start" />
-                                    <span className="text-[#fff]">{10}</span>
+                                    <span className="text-[#fff]">{6.963}</span>
                                     <button className="cursor-default ml-[15px] border border-solid border-[#ffffff29] px-[5px] pt-[5px] pb-[4px] rounded mr-[10px] text-[12px] font-bold text-[#ffffffa6] leading-[100%]">
                                         HD
                                     </button>
@@ -78,7 +77,7 @@ function MovieDetails() {
                                         <Link className="ml-[3px]" to={''}>
                                             Action
                                         </Link>
-                                        <Link to={''}>Triler</Link>
+                                        <Link to={''}>Animation</Link>
                                     </li>
                                     <li>
                                         <span className="mr-[3px]">Release year:</span> 2017
