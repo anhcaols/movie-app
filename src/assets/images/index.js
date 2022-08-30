@@ -9,6 +9,8 @@ const images = {
     cover3: require('./cover3.jpg'),
     cover4: require('./cover4.jpg'),
     cover6: require('./cover6.jpg'),
+    section: require('./section.jpg'),
+    check: require('./check.svg').default,
 
     appStore: require('./app-store.svg').default,
     googlePlay: require('./google-play.png'),

@@ -15,6 +15,9 @@ module.exports = {
       'text': '#ffffffb3',
       'bgd': '#2b2b31',
     },
+    fontFamily: {
+      'openSans': ['"Open Sans"'],
+    }
   },
   plugins: [],
 }

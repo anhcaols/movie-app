@@ -1,0 +1,115 @@
+.sign-image {
+    background: center center / cover no-repeat;
+    display: block;
+    position: relative;
+}
+.sign__form {
+    background-color: #28282d;
+    box-shadow: 0 5px 25px 0 rgb(0 0 0 / 30%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.sign__form:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    display: block;
+    background-image: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
+    box-shadow: 0 0 20px 0 rgb(255 88 96 / 50%);
+}
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    input {
+        &::placeholder {
+            color: #ffffff80;
+        }
+    }
+}
+.form-input:hover, .form-input:focus {
+    border-color: #ff55a5;
+}
+
+.form-input {
+    background-color: #2b2b31;
+    border: 1px solid transparent;
+    height: 50px;
+    position: relative;
+    color: #fff;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 0 20px;
+    font-family: 'Open Sans', sans-serif;
+    outline: none;
+    margin-left: 0;
+}
+.form-message  {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.form-group__checkbox {
+    width: 100%;
+    text-align: left;
+    position: relative;
+
+}
+
+.form-group__checkbox input:not(:checked) + label:before, .form-group__checkbox input:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #2b2b31;
+    border-radius: 2px;
+    cursor: pointer;
+
+}
+
+.icon-check {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    transition: 0.4s;
+    background: url("https://dmitryvolkov.me/demo/flixgo2.0/main/img/check.svg") no-repeat center;
+    background-size: 20px auto;
+    border-radius: 2px;
+    cursor: pointer;
+    display: block;
+    opacity: 0;
+    transform: scale(0);
+
+}
+.icon-check.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.privacy {
+    background-image: -webkit-linear-gradient(0deg, #ff55a5 0%, #ff5860 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #ff5860;
+    opacity: 0.8;
+
+    &:hover {
+        opacity: 1;
+    }
+}
