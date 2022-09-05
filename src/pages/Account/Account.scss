@@ -56,6 +56,9 @@
     outline: none;
     margin-left: 0;
 }
+.form-input .invalid {
+    border-color: #ff55a5;
+}
 .form-message  {
     font-family: 'Open Sans', sans-serif;
 }

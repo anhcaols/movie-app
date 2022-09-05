@@ -4,7 +4,9 @@ import Login from '~/pages/Account/Login/Login'
 import Register from '~/pages/Account/Register/Register'
 
 import config from '~/config'
-import Forgot from '~/pages/Account/Fogot/Fogot'
+import Forgot from '~/pages/Account/Forgot/Forgot'
+import Profile from '~/pages/Profile/Profile'
+import Search from '~/pages/Search/Search'
 
 export const publicRoutes = [
     {
@@ -16,7 +18,7 @@ export const publicRoutes = [
         component: MovieDetails,
     },
     {
-        path: config.routes.pricing,
+        path: config.routes.event,
         component: Home,
     },
     {
@@ -38,5 +40,14 @@ export const publicRoutes = [
         component: Forgot,
         layout: null,
     },
+    {
+        path: config.routes.search,
+        component: Search,
+    },
 ]
-export const privateRoutes = []
+export const privateRoutes = [
+    {
+        path: config.routes.profile,
+        component: Profile,
+    },
+]

@@ -15,7 +15,10 @@ function MovieDetails() {
     const [listFilm, setListFilm] = useState([])
     const [toggleState, setToggleState] = useState(1)
     const [toggleDesc, setToggleDesc] = useState(false)
-    const [genres, setGenres] = useState()
+    const [genres, setGenres] = useState([])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     //Call Api
     useEffect(() => {
         //Api Movie

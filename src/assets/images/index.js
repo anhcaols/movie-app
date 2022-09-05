@@ -11,10 +11,8 @@ const images = {
     cover6: require('./cover6.jpg'),
     section: require('./section.jpg'),
     check: require('./check.svg').default,
-
+    arrowRight: require('./arrow-right.svg').default,
     appStore: require('./app-store.svg').default,
     googlePlay: require('./google-play.png'),
-
-
 }
 export default images

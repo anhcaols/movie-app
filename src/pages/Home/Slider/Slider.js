@@ -16,7 +16,7 @@ function SimpleSlider({ data, genres = [] }) {
                     slidesToShow: 3,
                     slidesToScroll: 3,
                     infinite: true,
-                    dots: true,
+                    dots: false,
                     arrows: false,
                 },
             },
@@ -27,6 +27,8 @@ function SimpleSlider({ data, genres = [] }) {
                     slidesToScroll: 2,
                     initialSlide: 2,
                     arrows: false,
+                    dots: false,
+
                 },
             },
         ],

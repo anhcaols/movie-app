@@ -1,36 +1,63 @@
 import classNames from 'classnames'
 import Card from '~/components/Card/Card'
 import PropTypes from 'prop-types'
-function ExpectedPremiere({ className, data, genres = [] }) {
+import Button from '~/components/Button/Button'
+import { useState } from 'react'
+function ExpectedPremiereTab({ className, data, genres = [] }) {
+    const [countMovie, setCountMovie] = useState(6)
+    const [textBtn, setTextBtn] = useState('See More')
+
+    let dataRender = data.slice(0, countMovie)
+    //handle Events
+    const handleMoreBtn = () => {
+        if (countMovie < data.length - 1) {
+            setCountMovie(countMovie + 6)
+        }
+        if (textBtn !== 'See More') {
+            setCountMovie(countMovie - 6)
+        }
+        if (countMovie >= data.length - 6) {
+            setTextBtn('See Less')
+        } else {
+            setTextBtn('See More')
+        }
+    }
     return (
-        <div className={classNames('content-body block pb-[70px]', { [className]: className })}>
-            <div className="container flex flex-row flex-wrap content-center items-center mx-auto pt-[10px]">
-                <div className="grid grid-cols-6">
-                    {data.slice(6, 12).map((film) => {
-                        return (
-                            <Card
-                                genresName={film.genre_ids.map((item_id) => {
-                                    let nameGenre
-                                    genres.forEach((item_id_name) => {
-                                        if (item_id === item_id_name.id) {
-                                            nameGenre = item_id_name.name
-                                        }
-                                    })
-                                    return nameGenre
-                                })}
-                                key={film.id}
-                                data={film}
-                            />
-                        )
-                    })}
+        <div>
+            <div className={classNames('content-body block pb-[70px]', { [className]: className })}>
+                <div className="container flex flex-row flex-wrap content-center items-center mx-auto pt-[10px]">
+                    <div className="grid grid-cols-2 xl:grid-cols-6">
+                        {dataRender.map((film) => {
+                            return (
+                                <Card
+                                    genresName={film.genre_ids.map((item_id) => {
+                                        let nameGenre
+                                        genres.forEach((item_id_name) => {
+                                            if (item_id === item_id_name.id) {
+                                                nameGenre = item_id_name.name
+                                            }
+                                        })
+                                        return nameGenre
+                                    })}
+                                    key={film.id}
+                                    data={film}
+                                />
+                            )
+                        })}
+                    </div>
                 </div>
+            </div>
+            <div className=" container flex flex-row flex-wrap content-center justify-center items-center mx-auto px-[15px] pb-[50px] md:pb-[70px]">
+                <Button onClick={handleMoreBtn} className="mt-[-20px] w-[150px] " primary large>
+                    {textBtn}
+                </Button>
             </div>
         </div>
     )
 }
-ExpectedPremiere.propTypes = {
+ExpectedPremiereTab.propTypes = {
     classNames: PropTypes.string,
     data: PropTypes.array,
     genres: PropTypes.array,
 }
-export default ExpectedPremiere
+export default ExpectedPremiereTab

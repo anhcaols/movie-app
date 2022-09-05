@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types'
-
-function Subnav({ children }) {
-    return <ul>{children}</ul>
+import classNames from 'classnames'
+function Subnav({ className, children }) {
+    const classes = classNames('', {
+        [className]: className,
+    })
+    return <ul className={classes}>{children}</ul>
 }
 
 Subnav.propTypes = {
     children: PropTypes.node.isRequired,
+    classNames: PropTypes.string,
 }
 export default Subnav

@@ -9,7 +9,7 @@ function Footer() {
     return (
         <footer className="footer content-head relative bg-bgd">
             <div className=" container flex flex-row flex-wrap content-center items-center mx-auto pl-[15px] pr-[15px]">
-                <div className="w-full grid grid-cols-4 gap-[30px] my-[70px]">
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-[20px] xl:gap-[30px] my-[40px] xl:my-[70px]">
                     <div className="download">
                         <Subnav>
                             <SubnavItem
@@ -18,8 +18,14 @@ function Footer() {
                                 title="Download Our App"
                                 to={'/'}
                             />
-                            <SubnavItem classNameImg="w-[140px] my-[15px]" img={images.appStore} to={'/'} />
-                            <SubnavItem classNameImg="w-[140px]" img={images.googlePlay} to={'/'} />
+                            <div className="flex items-center md:block">
+                                <SubnavItem
+                                    classNameImg="w-[140px] my-[15px] mr-[15px] md:mr-[0]"
+                                    img={images.appStore}
+                                    to={'/'}
+                                />
+                                <SubnavItem classNameImg="w-[140px]" img={images.googlePlay} to={'/'} />
+                            </div>
                         </Subnav>
                     </div>
                     <div className="resources">
@@ -87,8 +93,8 @@ function Footer() {
                         </Subnav>
                     </div>
                 </div>
-                <div className="footer-copyright w-full flex justify-between border-t-[1px] border-solid border-[#ffffff0f] py-[32px]">
-                    <h4 className="text-[#ffffff99] text-sm">
+                <div className="footer-copyright w-full flex flex-col xl:flex-row justify-between border-t-[1px] border-solid border-[#ffffff0f] py-[32px]">
+                    <h4 className="text-[#ffffff99] text-sm pb-[20px] xl:pb-0">
                         © FlixGo, 2018—2022. Create by{' '}
                         <Link className="hover:underline" to={'/'}>
                             Dmitry Volkov

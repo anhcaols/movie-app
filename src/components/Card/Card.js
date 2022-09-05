@@ -7,16 +7,15 @@ import config from '~/config'
 
 function Card({ data = {}, genresName }) {
     return (
-        <div className="movie-item px-[15px] mt-[30px] flex flex-col">
+        <div className="movie-item px-[10px] xl:px-[15px] mt-[15px] md:mt-[30px] flex flex-col">
             <CardImage
-                onClick={{}}
                 src={` https://image.tmdb.org/t/p/original${data.poster_path}`}
                 alt={data.name}
                 to={config.routes.detail}
             />
             <div className="text-[white]">
                 <Link to={''}>
-                    <h3 className="hover:text-primary hover:text-primary text-xl mt-[14px] mb-[3px] leading-[30px] overflow-hidden whitespace-nowrap text-ellipsis ">
+                    <h3 className="hover:text-primary text-xl mt-[14px] mb-[3px] leading-[30px] overflow-hidden whitespace-nowrap text-ellipsis ">
                         {data.title}
                     </h3>
                 </Link>
@@ -31,7 +30,8 @@ function Card({ data = {}, genresName }) {
                         })}
                 </div>
                 <div className="flex ">
-                    <img className="w-4 mr-1" src={images.star} alt="start" /> <span>{data.vote_average}</span>
+                    <img className="w-4 mr-1" src={images.star} alt="start" />{' '}
+                    <span>{data.vote_average.toFixed(2)}</span>
                 </div>
             </div>
         </div>

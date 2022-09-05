@@ -6,7 +6,7 @@ function MainLayout({ children }) {
     return (
         <div className="app">
             <Header />
-            <main className="main" style={{ marginTop: '80px' }}>
+            <main className="main mt-[70px] md:mt-20">
                 {children}
             </main>
             <Footer />

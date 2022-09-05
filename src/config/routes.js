@@ -1,11 +1,13 @@
 const routes = {
     home: '/',
     detail: '/detail',
-    pricing: '/pricing',
+    event: '/event',
     help: '/help',
-    login: 'login',
-    register: 'register',
-    forgot: 'forgot',
+    login: '/login',
+    register: '/register',
+    forgot: '/forgot',
+    profile: '/profile',
+    search: '/search',
 
 }
 export default routes

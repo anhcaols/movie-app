@@ -1,11 +1,11 @@
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import Card from '~/components/Card/Card'
-function CartoonsTab({ className, data, genres =[]}) {
+function CartoonsTab({ className, data, genres = [] }) {
     return (
         <div className={classNames('content-body pb-[70px]', { [className]: className })}>
             <div className="container flex flex-row flex-wrap content-center items-center mx-auto pt-[10px]">
-                <div className="grid grid-cols-6">
+                <div className="grid grid-cols-2 xl:grid-cols-6">
                     {data.slice(7, 19).map((film) => {
                         return (
                             <Card
