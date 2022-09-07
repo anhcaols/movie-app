@@ -200,7 +200,7 @@ function Header() {
                             </div>
                         ) : (
                             <>
-                                <Button className="hidden md:flex" primary large href={config.routes.login}>
+                                <Button className="hidden md:flex" primary large to={config.routes.login}>
                                     SIGN IN
                                 </Button>
                                 <Button
@@ -208,7 +208,7 @@ function Header() {
                                     icon={<LogoutIcon className="fill-[#fff] w-[22px]" />}
                                     primary
                                     small
-                                    href={config.routes.login}
+                                    to={config.routes.login}
                                 ></Button>
                             </>
                         )}
