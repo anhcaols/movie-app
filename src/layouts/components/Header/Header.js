@@ -170,7 +170,7 @@ function Header() {
                                                     <Subnav>
                                                         <SubnavItem
                                                             title="View Profile"
-                                                            href={config.routes.profile}
+                                                            to={config.routes.login}
                                                             icon={<UserIcon />}
                                                         />
                                                         <SubnavItem
