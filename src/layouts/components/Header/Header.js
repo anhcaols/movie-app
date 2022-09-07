@@ -81,7 +81,10 @@ function Header() {
                                     placement="top-start"
                                     offset={[0, 0]}
                                 >
-                                    <NavbarItem title="Cinema blog" />
+                                    <NavbarItem
+                                        title="Cinema blog"
+                                        icon={<DropMenuIcon className="hidden xl:block" />}
+                                    />
                                 </Tippy>
                             </div>
 
