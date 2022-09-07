@@ -61,7 +61,7 @@ function Header() {
                         <div onClick={handleToggle} className={`overlay ${toggleBtn ? 'active' : ''}`}></div>
                         <Navbar className="ml-[40px]">
                             <NavbarItem onClick={handleCloseSearch} title="HOME" to={config.routes.home} />
-                            <>
+                            <div>
                                 <Tippy
                                     interactive
                                     delay={[200, 500]}
@@ -83,7 +83,7 @@ function Header() {
                                 >
                                     <NavbarItem title="Cinema blog" icon={<DropMenuIcon />} />
                                 </Tippy>
-                            </>
+                            </div>
 
                             <NavbarItem title="Event" to={config.routes.event} />
                             <NavbarItem title="HELP" to={config.routes.help} />
