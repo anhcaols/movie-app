@@ -175,12 +175,12 @@ function Header() {
                                                         />
                                                         <SubnavItem
                                                             title="Feedback and help"
-                                                            href={'/'}
+                                                            to={'/'}
                                                             icon={<FeedbackIcon />}
                                                         />
                                                         <SubnavItem
                                                             title="Logout"
-                                                            href={config.routes.login}
+                                                            to={config.routes.login}
                                                             icon={<LogoutIcon />}
                                                         />
                                                     </Subnav>
