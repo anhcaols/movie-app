@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+
 import Image from '~/components/Image/Image'
+
 function SubnavItem({
     className,
     classNameImg,
@@ -43,5 +45,9 @@ SubnavItem.propTypes = {
     title: PropTypes.string,
     to: PropTypes.node,
     href: PropTypes.node,
+    classNameImg: PropTypes.string,
+    fontBase: PropTypes.bool,
+    img: PropTypes.string,
+    icon: PropTypes.object,
 }
 export default SubnavItem

@@ -18,14 +18,3 @@ export const movieDetail = async (id = 297762) => {
         console.log(error)
     }
 }
-
-// const res = await requestMovie.get(
-//     `movie`,
-//     {
-//         params: {
-//             id,
-//         },
-//     },
-//     `?${API_KEY}&append_to_response=videos`,
-// )
-// return res

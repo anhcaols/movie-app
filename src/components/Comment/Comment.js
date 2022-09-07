@@ -1,9 +1,11 @@
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
+
 import images from '~/assets/images'
 import { DisLikeIcon, LikeIcon, QuoteIcon, ReplyIcon } from '../Icons'
 import Image from '../Image/Image'
-import PropTypes from 'prop-types'
 import '~/pages/MovieDetails/MovieDetails.scss'
+
 function Comment({ className, comment, review, src, title, time, author, rate, actions, content }) {
     return (
         <div className={classNames('comment-item', { [className]: className })}>
@@ -14,13 +16,15 @@ function Comment({ className, comment, review, src, title, time, author, rate, a
                 <div>
                     <h4 className="text-[#fff]">{comment ? author : title}</h4>
                     <p className="text-[13px] text-[#ffffff80] leading-[20px] mt-[2px]">
-                        {time} {comment && ' '} { review && <span>by {author}</span>}
+                        {time} {comment && ' '} {review && <span>by {author}</span>}
                     </p>
                 </div>
-                { review && <div className="ml-auto flex items-center">
-                    <img className="w-4 mr-1" src={images.star} alt="start" />{' '}
-                    <span className="text-[#fff]">{rate}</span>
-                </div>}
+                {review && (
+                    <div className="ml-auto flex items-center">
+                        <img className="w-4 mr-1" src={images.star} alt="start" />{' '}
+                        <span className="text-[#fff]">{rate}</span>
+                    </div>
+                )}
             </div>
             <div className="comment__text bg-[#28282d] text-[#ffffffb3] rounded mt-[15px]">
                 <p className="p-[20px] leading-[26px]">{content}</p>
@@ -54,7 +58,7 @@ function Comment({ className, comment, review, src, title, time, author, rate, a
 }
 
 Comment.propTypes = {
-    class: PropTypes.string,
+    className: PropTypes.string,
     src: PropTypes.string,
     title: PropTypes.string,
     time: PropTypes.string,
@@ -63,6 +67,7 @@ Comment.propTypes = {
     actions: PropTypes.bool,
     content: PropTypes.string,
     comment: PropTypes.bool,
+    review: PropTypes.bool,
 }
 
 export default Comment

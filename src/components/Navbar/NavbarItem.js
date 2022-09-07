@@ -2,13 +2,16 @@ import { forwardRef } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+
 const NavbarItem = forwardRef(
-    ({ className, title, icon = false, to = false, href = false, fontThin, activeNewItem = false,  onClick }, ref) => {
+    ({ className, title, icon = false, to = false, href = false, fontThin, activeNewItem = false, onClick }, ref) => {
         const props = {
             onClick,
         }
         const classes = classNames(
-            `navbar-item ${activeNewItem && "nav-tab"}  relative flex items-center h-10  xl:h-20 cursor-pointer text-[#ffffffbf] text-sm uppercase mr-10 hover:text-primary`,
+            `navbar-item ${
+                activeNewItem && 'nav-tab'
+            }  relative flex items-center h-10  xl:h-20 cursor-pointer text-[#ffffffbf] text-sm uppercase mr-10 hover:text-primary`,
             {
                 [className]: className,
             },
@@ -28,6 +31,9 @@ NavbarItem.propTypes = {
     title: PropTypes.string.isRequired,
     icon: PropTypes.node,
     to: PropTypes.string,
+    href: PropTypes.string,
+    fontThin: PropTypes.bool,
     className: PropTypes.string,
+    onClick: PropTypes.func,
 }
 export default NavbarItem

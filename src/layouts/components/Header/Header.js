@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Tippy from '@tippyjs/react/headless'
 import 'tippy.js/animations/perspective.css'
@@ -14,7 +14,6 @@ import Subnav from '~/components/Navbar/Subnav/Subnav'
 import SubnavItem from '~/components/Navbar/Subnav/SubnavItem'
 import Button from '~/components/Button/Button'
 import Image from '~/components/Image/Image'
-
 import storage from '~/store/storage'
 
 let userCurrent
@@ -170,7 +169,7 @@ function Header() {
                                                     <Subnav>
                                                         <SubnavItem
                                                             title="View Profile"
-                                                            to={config.routes.login}
+                                                            to={config.routes.profile}
                                                             icon={<UserIcon />}
                                                         />
                                                         <SubnavItem

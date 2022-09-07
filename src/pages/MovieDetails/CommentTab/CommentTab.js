@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+
 import Comment from '~/components/Comment/Comment'
 import '~/pages/MovieDetails/MovieDetails.scss'
 import Button from '~/components/Button/Button'

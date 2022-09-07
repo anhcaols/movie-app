@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 import { RefreshIcon } from '~/components/Icons'
 import Image from '~/components/Image/Image'
 import '~/pages/Profile/Profile.scss'
@@ -125,4 +127,12 @@ function Table({ heading, category, author, title, item, src }) {
     )
 }
 
+Table.propTypes = {
+    heading: PropTypes.string,
+    category: PropTypes.string,
+    author: PropTypes.string,
+    title: PropTypes.string,
+    item: PropTypes.string,
+    src: PropTypes.string,
+}
 export default Table

@@ -1,6 +1,8 @@
 import classNames from 'classnames'
-import Card from '~/components/Card/Card'
 import PropTypes from 'prop-types'
+
+import Card from '~/components/Card/Card'
+
 function MovieTab({ className, data, genres = [] }) {
     return (
         <div className={classNames('content-body pb-[70px]', { [className]: className })}>

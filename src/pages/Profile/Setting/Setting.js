@@ -1,8 +1,10 @@
-import Button from '~/components/Button/Button'
 import classNames from 'classnames'
+import { useEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
+
 import storage from '~/store/storage'
-import { useEffect, useRef, useState } from 'react'
 import config from '~/config'
+import Button from '~/components/Button/Button'
 
 function Setting({ className }) {
     const emailRef = useRef()
@@ -145,4 +147,7 @@ function Setting({ className }) {
     )
 }
 
+Setting.propTypes = {
+    classNames: PropTypes.string,
+}
 export default Setting

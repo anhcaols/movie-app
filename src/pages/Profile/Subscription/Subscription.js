@@ -1,5 +1,7 @@
-import Button from '~/components/Button/Button'
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
+
+import Button from '~/components/Button/Button'
 
 function Subscription({ className }) {
     return (
@@ -92,4 +94,7 @@ function Subscription({ className }) {
     )
 }
 
+Subscription.propTypes = {
+    classNames: PropTypes.string,
+}
 export default Subscription

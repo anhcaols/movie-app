@@ -12,7 +12,7 @@ import './MovieDetails.scss'
 import Card from '~/components/Card/Card'
 import * as movieService from '~/services/movieService'
 import * as genresService from '~/services/genresService'
-import * as movieDetailService from '~/services/movieDetailService'
+// import * as movieDetailService from '~/services/movieDetailService'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 

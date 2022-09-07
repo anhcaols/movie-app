@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+
 import images from '~/assets/images'
 import CardImage from '~/components/Card/CardImage'
 import config from '~/config'
+
 function InfoMovie({ data, genresName }) {
     return (
         <div className="info-item flex overflow-hidden">
@@ -48,5 +50,6 @@ function InfoMovie({ data, genresName }) {
 
 InfoMovie.propTypes = {
     data: PropTypes.object.isRequired,
+    genresName: PropTypes.array,
 }
 export default InfoMovie

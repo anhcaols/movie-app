@@ -14,7 +14,7 @@ export const genres = async (query) => {
 
             `&page=1&include_adult=false`,
         )
-        console.log(res);
+        console.log(res)
         return res.genres
     } catch (error) {
         console.log(error)

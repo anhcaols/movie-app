@@ -40,5 +40,6 @@ function Card({ data = {}, genresName }) {
 
 Card.propTypes = {
     data: PropTypes.object,
+    genresName: PropTypes.array,
 }
 export default Card

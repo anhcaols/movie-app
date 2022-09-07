@@ -1,8 +1,10 @@
 import classNames from 'classnames'
-import Card from '~/components/Card/Card'
-import PropTypes from 'prop-types'
-import Button from '~/components/Button/Button'
 import { useState } from 'react'
+import PropTypes from 'prop-types'
+
+import Card from '~/components/Card/Card'
+import Button from '~/components/Button/Button'
+
 function ExpectedPremiereTab({ className, data, genres = [] }) {
     const [countMovie, setCountMovie] = useState(6)
     const [textBtn, setTextBtn] = useState('See More')

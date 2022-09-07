@@ -1,8 +1,11 @@
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import PropTypes from 'prop-types'
+
 import '../Home.scss'
 import Card from '~/components/Card/Card'
+
 function SimpleSlider({ data, genres = [] }) {
     const settings = {
         infinite: true,
@@ -65,5 +68,10 @@ function SimpleSlider({ data, genres = [] }) {
             </Slider>
         </div>
     )
+}
+
+SimpleSlider.propTypes = {
+    data: PropTypes.array.isRequired,
+    genres: PropTypes.array,
 }
 export default SimpleSlider

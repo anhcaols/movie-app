@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
-import images from '~/assets/images'
+
 import { FacebookIcon, InstagramIcon, TwitterIcon, VkIcon } from '~/components/Icons'
 import Subnav from '~/components/Navbar/Subnav/Subnav'
 import SubnavItem from '~/components/Navbar/Subnav/SubnavItem'
+import images from '~/assets/images'
 import '~/pages/Home/Home.scss'
-// import './Footer.scss'
+
 function Footer() {
     return (
         <footer className="footer content-head relative bg-bgd">

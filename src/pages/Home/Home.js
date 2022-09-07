@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+
 import './Home.scss'
 import images from '~/assets/images'
 import SimpleSlider from '~/pages/Home/Slider/Slider'

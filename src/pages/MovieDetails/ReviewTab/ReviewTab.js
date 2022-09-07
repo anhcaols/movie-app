@@ -15,14 +15,6 @@ function ReviewTab({ className }) {
         setRate(values)
     }
 
-    const handleProgress = (e) => {
-        // const progressAreaWidth = progressAreaRef.current.clientWidth
-        // let valueOffSetX = e.nativeEvent.offsetX
-        // progressBarRef.current.style.width = valueOffSetX + 'px'
-        // progressBarBallRef.current.style.marginLeft = valueOffSetX + 'px'
-        // const num = ((valueOffSetX / progressAreaWidth) * 10).toFixed(1)
-        // rateRef.current.innerText = num
-    }
     return (
         <div className={classNames('comment-list  px-[15px] w-[100%] lg:w-[66.666667%]', { [className]: className })}>
             <Comment
@@ -57,7 +49,7 @@ function ReviewTab({ className }) {
                     <textarea className="form__textarea  placeholder:text-[#ffffff80]" placeholder="Review" />
                     <div className="mt-[30px] text-[15px]  ">
                         <p className="mb-[10px] h-[20px] text-[#ffffff80]">Rate:</p>
-                        <div ref={progressAreaRef} className="flex  relative" onClick={handleProgress}>
+                        <div ref={progressAreaRef} className="flex  relative">
                             <Nouislider
                                 behaviour="tap-snap"
                                 connect={[true, false]}

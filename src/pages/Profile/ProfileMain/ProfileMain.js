@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 import Image from '~/components/Image/Image'
 import Table from './Table/Table'
 import classNames from 'classnames'
@@ -64,4 +66,7 @@ function ProfileMain({ className }) {
     )
 }
 
+ProfileMain.propTypes = {
+    classNames: PropTypes.string,
+}
 export default ProfileMain

@@ -1,6 +1,8 @@
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
+
 import Card from '~/components/Card/Card'
+
 function CartoonsTab({ className, data, genres = [] }) {
     return (
         <div className={classNames('content-body pb-[70px]', { [className]: className })}>

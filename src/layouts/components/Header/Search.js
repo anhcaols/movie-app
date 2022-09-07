@@ -35,11 +35,6 @@ function Search() {
                     type="text"
                     placeholder="I'm looking for..."
                 />
-                {/* <div className="pr-5">
-                    <Button primary small>
-                        Search
-                    </Button>
-                </div> */}
             </form>
         </>
     )
