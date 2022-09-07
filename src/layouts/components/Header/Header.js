@@ -60,7 +60,7 @@ function Header() {
                     {/* Navbar */}
                     <div className={`navbar-header ${toggleBtn ? 'active' : ''}`}>
                         <div onClick={handleToggle} className={`overlay ${toggleBtn ? 'active' : ''}`}></div>
-                        <Navbar>
+                        <Navbar className="ml-[40px]">
                             <NavbarItem onClick={handleCloseSearch} title="HOME" to={config.routes.home} />
                             <>
                                 <Tippy
