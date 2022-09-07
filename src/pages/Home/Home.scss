@@ -1,6 +1,6 @@
 .main-image {
     background: center center / cover no-repeat;
-    height: 690.664px;
+    // height: 690.664px;
 }
 
 //Stick slider
@@ -160,12 +160,10 @@
 }
 
 //responsive
-@media (max-width: 1139px) {
+
+@media (max-width: 719px) {
     .hide-on-mobile{
         display: none !important;
-    }
-    .main-image {
-        height: 580px;
     }
     .content-tab-list {
         .navbar.active {

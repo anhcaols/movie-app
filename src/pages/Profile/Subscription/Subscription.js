@@ -5,7 +5,7 @@ function Subscription({ className }) {
     return (
         <div className={classNames('profile-tab', { [className]: className })}>
             <div className=" container flex flex-row flex-wrap content-center items-center mx-auto pl-[15px] pr-[15px]">
-                <div className="grid grid-cols-3 w-full gap-[30px] mt-[40px] mb-[70px]">
+                <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-[30px] mt-[20px] mb-[50px] xl:mt-[40px] xl:mb-[70px]">
                     <div className="profile-price relative overflow-hidden rounded  p-[20px] bg-[#28282d]">
                         <div className="flex justify-between text-[26px] font-normal mb-[5px] text-[#fff] ">
                             <h3>Basic</h3>

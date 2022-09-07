@@ -21,7 +21,7 @@ function CommentTab({ className }) {
 
             <Comment
                 comment
-                className="ml-[50px]"
+                className="ml-[25px] lg:ml-[50px]"
                 src=""
                 time={'24.08.2018, 17:53'}
                 author="Cao Anh"
@@ -33,11 +33,20 @@ function CommentTab({ className }) {
            anything embarrassing hidden in the middle of text."
             />
 
-             {/* text area */}
-             <div className="comment-text-wrapper mt-[30px] p-[20px] bg-[#28282d] ">
+            {/* text area */}
+            <div className="comment-text-wrapper mt-[30px] p-[20px] bg-[#28282d] ">
                 <form action="#" className="flex flex-col">
-                    <textarea className="form__textarea  placeholder:text-[#ffffff80]" placeholder='Add comment' />
-                    <Button onClick={(e)=>{e.preventDefault()}} primary large className="mt-[25px] w-[150px]">SEND</Button>
+                    <textarea className="form__textarea  placeholder:text-[#ffffff80]" placeholder="Add comment" />
+                    <Button
+                        onClick={(e) => {
+                            e.preventDefault()
+                        }}
+                        primary
+                        large
+                        className="mt-[25px] w-[150px]"
+                    >
+                        SEND
+                    </Button>
                 </form>
             </div>
         </div>

@@ -6,7 +6,7 @@ function NewReleasesTab({ className, data, genres = [] }) {
     return (
         <div className={classNames('content-body hide-on-mobile pb-[65px] mt-[30px]', { [className]: className })}>
             <div className="container flex flex-row flex-wrap content-center items-center mx-auto pt-[10px] pl-[15px] pr-[15px]">
-                <div className="info-film grid grid-cols-2 gap-[10px] md:gap-[30px]">
+                <div className="info-film grid grid-cols-1 lg:grid-cols-2 gap-[10px] md:gap-[30px]">
                     {data.slice(0, 6).map((film) => {
                         return (
                             <InfoMovie

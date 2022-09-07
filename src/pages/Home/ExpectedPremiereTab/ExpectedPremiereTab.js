@@ -26,7 +26,7 @@ function ExpectedPremiereTab({ className, data, genres = [] }) {
         <div>
             <div className={classNames('content-body block pb-[70px]', { [className]: className })}>
                 <div className="container flex flex-row flex-wrap content-center items-center mx-auto pt-[10px]">
-                    <div className="grid grid-cols-2 xl:grid-cols-6">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
                         {dataRender.map((film) => {
                             return (
                                 <Card

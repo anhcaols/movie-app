@@ -95,8 +95,8 @@ function MovieDetails() {
                     </h2>
                 </div>
                 <div className="container top-0 flex flex-row flex-wrap items-center mx-auto pl-[15px] pr-[15px] ">
-                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-[30px] z-10 ">
-                        <div className="flex flex-col xl:flex-row">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] z-10 ">
+                        <div className="flex flex-col md:flex-row">
                             <div className="img-details w-[250px] xl:w-[210px] flex-shrink-0 mr-[20px]">
                                 <Image
                                     className="w-full rounded"
@@ -208,7 +208,7 @@ function MovieDetails() {
                 <div className="pb-[70px] bg-bgd">
                     <div className={'comment-wrapper bg-bgd'}>
                         <div className="container flex flex-row flex-wrap content-center items-center mx-auto pt-[10px]">
-                            <div className="flex flex-col xl:flex-row ">
+                            <div className="flex flex-col lg:flex-row ">
                                 <CommentTab className={toggleState === 1 ? 'active' : ''} />
                                 <ReviewTab className={toggleState === 2 ? 'active' : ''} />
                                 <div className="w-[100%] lg:w-[33.33333%]">

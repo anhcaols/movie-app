@@ -72,7 +72,10 @@ function Home() {
     return (
         <div className="main-movie relative bg-bgd">
             {/* Background Image */}
-            <div className="main-image opacity-[0.07] " style={{ backgroundImage: `url(${images.homeBg4})` }}></div>
+            <div
+                className="main-image opacity-[0.07] h-[580px] sm:h-[670.961px] md:h-[690.664px]"
+                style={{ backgroundImage: `url(${images.homeBg4})` }}
+            ></div>
             {/* Movie content  */}
             <div className="movie-content w-full absolute top-[50px] md:top-[70px] z-10">
                 {/* Title and button */}
@@ -86,7 +89,7 @@ function Home() {
                     <div className="btn-slider flex mb-[17px]"></div>
                 </div>
                 {/* Slider */}
-                <div className="movie-list-wrapper container flex flex-row flex-wrap content-center justify-between items-center mx-auto ">
+                <div className="movie-list-wrapper pb-[25px] container flex flex-row flex-wrap content-center justify-between items-center mx-auto ">
                     <SimpleSlider data={listFilm} genres={genres} />
                 </div>
             </div>

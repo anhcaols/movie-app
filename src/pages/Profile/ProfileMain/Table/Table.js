@@ -1,5 +1,6 @@
 import { RefreshIcon } from '~/components/Icons'
 import Image from '~/components/Image/Image'
+import '~/pages/Profile/Profile.scss'
 
 function Table({ heading, category, author, title, item, src }) {
     return (
@@ -16,7 +17,7 @@ function Table({ heading, category, author, title, item, src }) {
                     </button>
                 </div>
             </div>
-            <div className="p-[20px]">
+            <div className="p-[20px] table-wrapper">
                 <table className="w-full">
                     <thead>
                         <tr className="text-[#ffffff80] text-[12px] leading-[100%] border-b-[1px] border-solid border-[#ffffff0d] text-left">
@@ -30,7 +31,7 @@ function Table({ heading, category, author, title, item, src }) {
                         <tr className="text-[14px] text-[#fff] leading-[21px]">
                             <td className="font-normal font-openSans pt-[15px] pr-[10px] pb-[5px]">321</td>
                             <td className="font-normal font-openSans pt-[15px] pr-[10px] pb-[5px] hover:text-primary cursor-pointer">
-                                I Dream in Another Language
+                                Salt
                             </td>
                             <td className="font-normal font-openSans pt-[15px] pr-[10px] pb-[5px]">
                                 {(author && 'Cao Anh') || (category && 'Action')}

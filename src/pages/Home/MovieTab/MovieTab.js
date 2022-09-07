@@ -5,7 +5,7 @@ function MovieTab({ className, data, genres = [] }) {
     return (
         <div className={classNames('content-body pb-[70px]', { [className]: className })}>
             <div className="container flex flex-row flex-wrap content-center items-center mx-auto pt-[10px]">
-                <div className="grid grid-cols-2 xl:grid-cols-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
                     {data.slice(0, 12).map((film) => {
                         return (
                             <Card

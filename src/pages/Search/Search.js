@@ -106,7 +106,7 @@ function Search() {
                             ref={searchContainer}
                             className="container z-10 my-[70px] opacity-1 flex flex-row flex-wrap items-center mx-auto px-[15px]"
                         >
-                            <div className="grid grid-cols-2 xl:grid-cols-4">
+                            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
                                 {data.map((film) => {
                                     return <Card key={film.id} data={film} />
                                 })}

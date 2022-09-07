@@ -11,10 +11,20 @@ function SimpleSlider({ data, genres = [] }) {
         slidesToScroll: 1,
         responsive: [
             {
-                breakpoint: 960,
+                breakpoint: 1000,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
+                    infinite: true,
+                    dots: false,
+                    arrows: false,
+                },
+            },
+            {
+                breakpoint: 720,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
                     infinite: true,
                     dots: false,
                     arrows: false,
@@ -28,7 +38,6 @@ function SimpleSlider({ data, genres = [] }) {
                     initialSlide: 2,
                     arrows: false,
                     dots: false,
-
                 },
             },
         ],

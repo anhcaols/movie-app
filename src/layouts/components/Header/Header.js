@@ -48,10 +48,14 @@ function Header() {
                     {/* Logo */}
                     <Link
                         onClick={handleCloseSearch}
-                        className="logo flex justify-center items-center w-[140px] md:w-[175px] lg:[210px] xl:w-[248px] bg-[#28282d] hover:bg-bgd"
+                        className="logo flex justify-center items-center w-[110px] sm:w-[157px] md:w-[175px] lg:[210px] xl:w-[248px] bg-[#28282d] hover:bg-bgd"
                         to={config.routes.home}
                     >
-                        <img className="w-[100px] md:w-[120px] h-[70px] md:h-20" src={images.logo} alt="img" />
+                        <img
+                            className="w-[80px] sm:w-[100px] md:w-[120px] h-[70px] md:h-20"
+                            src={images.logo}
+                            alt="img"
+                        />
                     </Link>
                     {/* Navbar */}
                     <div className={`navbar-header ${toggleBtn ? 'active' : ''}`}>
@@ -196,7 +200,7 @@ function Header() {
                             </div>
                         ) : (
                             <>
-                                <Button className="hidden xl:flex" primary large href={config.routes.login}>
+                                <Button className="hidden md:flex" primary large href={config.routes.login}>
                                     SIGN IN
                                 </Button>
                                 <Button

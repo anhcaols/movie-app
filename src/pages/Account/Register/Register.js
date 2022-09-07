@@ -141,9 +141,9 @@ function Register() {
                     mx-auto pl-[15px] pr-[15px] "
                 >
                     <div className="sign-content flex justify-center items-center w-full min-h-[100vh] py-[40px] ">
-                        <form className="sign__form px-5 py-10 xl:px-[60px] xl:py-[50px]" action="#" ref={formRef}>
+                        <form className="sign__form px-5 py-10 md:px-[60px] md:py-[50px]" action="#" ref={formRef}>
                             <a
-                                className="logo flex justify-center items-center mb-[40px] xl:mb-[50px] "
+                                className="logo flex justify-center items-center mb-[40px] md:mb-[50px] "
                                 href={config.routes.home}
                             >
                                 <img className="max-w-[127px]" src={images.logo} alt="img" />
