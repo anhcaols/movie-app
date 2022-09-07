@@ -210,7 +210,7 @@ function Header() {
                         )}
                         <button
                             onClick={handleToggle}
-                            className={`header-toggle-btn relative ml-[20px] md:ml-[30px]  ${
+                            className={`header-toggle-btn block xl:hidden relative ml-[20px] md:ml-[30px]  ${
                                 toggleBtn ? 'active' : ''
                             }`}
                         >

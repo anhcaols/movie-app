@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useEffect, useRef, useState } from 'react'
 import Button from '~/components/Button/Button'
 import Card from '~/components/Card/Card'
@@ -21,23 +22,35 @@ function Search() {
     // Call Api
     const debouncedValue = useDebounce(searchValue, 500)
     useEffect(() => {
-        const fetchApi = () => {
-            fetch(
-                `https://api.themoviedb.org/3/search/movie?api_key=8e6ce93930533e9735da28b27d751706&language=en-US&query=${debouncedValue}&page=1&include_adult=false`,
-            )
-                .then((res) => res.json())
-                .then((res) => {
-                    setSearchResult(res.results)
-                    setMoreBtn(true)
-                })
+        // const fetchApi = () => {
+        //     fetch(
+        //         `https://api.themoviedb.org/3/search/movie?api_key=8e6ce93930533e9735da28b27d751706&language=en-US&query=${debouncedValue}&page=1&include_adult=false`,
+        //     )
+        //         .then((res) => res.json())
+        //         .then((res) => {
+        //             setSearchResult(res.results)
+        //             setMoreBtn(true)
+        //         })
+        // }
+        const fetchApi = async () => {
+            try {
+                const result = await axios.get(
+                    `https://api.themoviedb.org/3/search/movie?api_key=8e6ce93930533e9735da28b27d751706&language=en-US&query=${debouncedValue}&page=1&include_adult=false`,
+                )
+                setSearchResult(result.data.results)
+                setMoreBtn(true)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        if (searchValue !== '') {
+            fetchApi()
         }
         if (!debouncedValue.trim()) {
             setSearchResult([])
             setMoreBtn(false)
-
             return
         }
-        fetchApi()
     }, [debouncedValue])
 
     // results search

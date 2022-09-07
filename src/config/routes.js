@@ -8,6 +8,5 @@ const routes = {
     forgot: '/forgot',
     profile: '/profile',
     search: '/search',
-
 }
 export default routes

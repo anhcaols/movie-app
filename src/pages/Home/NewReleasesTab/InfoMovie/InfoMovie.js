@@ -8,8 +8,8 @@ function InfoMovie({ data, genresName }) {
         <div className="info-item flex overflow-hidden">
             <CardImage
                 className="flex-shrink-0 w-[160px] h-full"
-                to={config.routes.detail}
-                src={` https://image.tmdb.org/t/p/original${data.poster_path}`}
+                to={`${config.routes.detail}/${data.id}`}
+                src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
                 alt={data.name}
             />
             <div className="info-body ml-[20px]">
@@ -20,7 +20,7 @@ function InfoMovie({ data, genresName }) {
                 </Link>
                 <div className="genre-movie">
                     {genresName !== undefined &&
-                        genresName.slice(0,1).map((genre, index) => {
+                        genresName.slice(0, 1).map((genre, index) => {
                             return (
                                 <Link key={index} className="mr-2 text-[14px] font-thin leading-[30px]" to={''}>
                                     {genre}

@@ -19,14 +19,17 @@ function Forgot() {
         <div className="sign-wrapper">
             <div className="sign-image" style={{ backgroundImage: `url(${images.section})` }}>
                 <div
-                    className="movie-title container flex flex-row flex-wrap justify-center justify-between items-center
+                    className="movie-title container flex flex-row flex-wrap justify-center items-center
                     mx-auto pl-[15px] pr-[15px] "
                 >
                     <div className="sign-content flex justify-center items-center w-full min-h-[100vh] py-[40px] ">
-                        <form className="sign__form px-[60px] py-[50px]" action="#">
-                            <Link className="logo flex justify-center items-center mb-[50px] " to={config.routes.home}>
+                        <form className="sign__form px-5 py-10 xl:px-[60px] xl:py-[50px]" action="#">
+                            <a
+                                className="logo flex justify-center items-center mb-[40px] xl:mb-[50px]"
+                                href={config.routes.home}
+                            >
                                 <img className="max-w-[127px]" src={images.logo} alt="img" />
-                            </Link>
+                            </a>
                             <div className="form-group">
                                 <input
                                     className="form-input"
@@ -39,7 +42,7 @@ function Forgot() {
                             </div>
                             <div className="form-group form-group__checkbox mt-[2px]">
                                 <input
-                                    className="form-checkbox"
+                                    className="form-checkbox ml-[1px]"
                                     id="remember"
                                     type="checkbox"
                                     name="remember"

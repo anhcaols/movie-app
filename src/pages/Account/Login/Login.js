@@ -159,8 +159,11 @@ function Login() {
                     mx-auto pl-[15px] pr-[15px] "
                 >
                     <div className="sign-content flex justify-center items-center w-full min-h-[100vh] py-[40px] ">
-                        <form ref={formRef} className="sign__form px-[60px] py-[50px]" action="#">
-                            <a className="logo flex justify-center items-center mb-[50px] " href={config.routes.home}>
+                        <form ref={formRef} className="sign__form px-5 py-10 xl:px-[60px] xl:py-[50px]" action="#">
+                            <a
+                                className="logo flex justify-center items-center mb-[40px] xl:mb-[50px] "
+                                href={config.routes.home}
+                            >
                                 <img className="max-w-[127px]" src={images.logo} alt="img" />
                             </a>
                             <div className="form-group">
@@ -187,7 +190,7 @@ function Login() {
                             </div>
                             <div className="form-group form-group__checkbox mt-[2px]">
                                 <input
-                                    className="form-checkbox"
+                                    className="form-checkbox ml-[1px]"
                                     id="remember"
                                     type="checkbox"
                                     name="remember"

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import YouTube from 'react-youtube'
 
 import images from '~/assets/images'
 import { MoreMenuIcon } from '~/components/Icons'
@@ -11,14 +12,26 @@ import './MovieDetails.scss'
 import Card from '~/components/Card/Card'
 import * as movieService from '~/services/movieService'
 import * as genresService from '~/services/genresService'
+import * as movieDetailService from '~/services/movieDetailService'
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
+
 function MovieDetails() {
     const [listFilm, setListFilm] = useState([])
-    const [toggleState, setToggleState] = useState(1)
-    const [toggleDesc, setToggleDesc] = useState(false)
     const [genres, setGenres] = useState([])
+    const [details, setDetails] = useState({})
+    const [toggleDesc, setToggleDesc] = useState(false)
+    const [toggleStateTab, setToggleStateTab] = useState(false)
+    const [toggleState, setToggleState] = useState(1)
+    const [keyYoutube, setKeyYoutube] = useState('')
+
+    const params = useParams()
+    let idMovie = params.id
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+
     //Call Api
     useEffect(() => {
         //Api Movie
@@ -41,32 +54,61 @@ function MovieDetails() {
             }
         }
         fetchApiGenre()
-    }, [])
+
+        // Api Movie Details
+        const fetchApiDetail = async () => {
+            try {
+                // const result = await movieDetailService.movieDetail()
+                const result = await axios.get(
+                    `https://api.themoviedb.org/3/movie/${idMovie}?api_key=e9e9d8da18ae29fc430845952232787c&append_to_response=videos`,
+                )
+                setDetails(result.data)
+                const video = result.data.videos.results
+                    .map((item) => {
+                        if (item.type === 'Trailer') return item.key
+                    })
+                    .filter((item) => {
+                        return item !== undefined
+                    })
+                setKeyYoutube(video[0])
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchApiDetail()
+    }, [idMovie])
+
+    //handle Events
+    const handleToggleTab = () => {
+        setToggleStateTab(!toggleStateTab)
+    }
     const handleMoreDesc = () => {
         setToggleDesc(!toggleDesc)
     }
     return (
-        <div className="details-wrapper  relative">
+        <div className="details-wrapper">
             <div className="image-details " style={{ backgroundImage: `url(${images.homeBg})` }}></div>
-            <div className="movie-detail w-full top-0 bg-bgd ">
+            <div className="movie-detail w-full top-0 bg-bgd py-[50px] xl:py-[70px]">
                 <div className="container top-0 flex flex-row flex-wrap items-center mx-auto pl-[15px] pr-[15px]">
-                    <h2 className=" z-10 text-4xl text-[#fff] leading-[50px] font-light mb-[30px] mt-[70px]">
-                        The Batman vs. Dracula
+                    <h2 className=" z-10 text-[30px] xl:text-4xl leading-[42px] xl:leading-[50px] text-[#fff] font-light mb-[30px] ">
+                        {details.title}
                     </h2>
                 </div>
-                <div className="container top-0 flex flex-row flex-wrap items-center mx-auto pl-[15px] pr-[15px] pb-[70px]">
-                    <div className="grid grid-cols-2 gap-[30px] z-10 ">
-                        <div className="flex">
-                            <div className="img-details w-[210px] flex-shrink-0 mr-[20px]">
+                <div className="container top-0 flex flex-row flex-wrap items-center mx-auto pl-[15px] pr-[15px] ">
+                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-[30px] z-10 ">
+                        <div className="flex flex-col xl:flex-row">
+                            <div className="img-details w-[250px] xl:w-[210px] flex-shrink-0 mr-[20px]">
                                 <Image
                                     className="w-full rounded"
-                                    src="https://image.tmdb.org/t/p/original/dBysIm8mEhvlemR5xeWUcE0P4TN.jpg"
+                                    src={`https://image.tmdb.org/t/p/original${details.poster_path}`}
                                 />
                             </div>
-                            <div className="card-details">
+                            <div className="card-details mt-[20px] xl:mt-0">
                                 <div className="flex">
                                     <img className="w-4 mr-1" src={images.star} alt="start" />
-                                    <span className="text-[#fff]">{6.963}</span>
+                                    <span className="text-[#fff]">
+                                        {details.vote_average !== undefined && details.vote_average.toFixed(2)}
+                                    </span>
                                     <button className="cursor-default ml-[15px] border border-solid border-[#ffffff29] px-[5px] pt-[5px] pb-[4px] rounded mr-[10px] text-[12px] font-bold text-[#ffffffa6] leading-[100%]">
                                         HD
                                     </button>
@@ -77,34 +119,32 @@ function MovieDetails() {
                                 <ul className="info-body-detail genre-movie ">
                                     <li>
                                         <span>Genre:</span>{' '}
-                                        <Link className="ml-[3px]" to={''}>
-                                            Action
-                                        </Link>
-                                        <Link to={''}>Animation</Link>
+                                        {details.genres !== undefined &&
+                                            details.genres.slice(0, 2).map((genre) => (
+                                                <Link key={genre.id} className="ml-[3px]" to={''}>
+                                                    {genre.name}
+                                                </Link>
+                                            ))}
                                     </li>
                                     <li>
-                                        <span className="mr-[3px]">Release year:</span> 2017
+                                        <span className="mr-[3px]">Release year:</span>{' '}
+                                        {details.release_date !== undefined && details.release_date.split('-')[0]}
                                     </li>
                                     <li>
-                                        <span className="mr-[3px]">Running time:</span> 120 min
+                                        <span className="mr-[3px]">Running time:</span> {details.runtime} min
                                     </li>
                                     <li>
                                         <span>Country:</span>{' '}
-                                        <Link className="ml-[3px]" to={''}>
-                                            USA
-                                        </Link>
+                                        {details.production_countries !== undefined &&
+                                            details.production_countries.map((country, index) => (
+                                                <Link key={index} className="ml-[3px]" to={''}>
+                                                    {country.name}
+                                                </Link>
+                                            ))}
                                     </li>
                                 </ul>
                                 <div className={`${toggleDesc && 'more'} info-desc-details mt-[13px] mb-0`}>
-                                    <p>
-                                        It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its layout. The point of using Lorem Ipsum is
-                                        that it has a more-or-less normal distribution of letters, as opposed to using
-                                        'Content here, content here', making it look like readable English. Many desktop
-                                        publishing packages and web page editors now use Lorem Ipsum as their default
-                                        model text, and a search for 'lorem ipsum' will uncover many web sites still in
-                                        their infancy.
-                                    </p>
+                                    <p>{details.overview}</p>
                                 </div>
                                 <div className="more-desc flex justify-center" onClick={handleMoreDesc}>
                                     <MoreMenuIcon className="w-[22px] cursor-pointer fill-text hover:fill-[#ff55a5]" />
@@ -112,12 +152,7 @@ function MovieDetails() {
                             </div>
                         </div>
                         <div className="video-movie relative">
-                            <video
-                                className="z-10"
-                                src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
-                                controls
-                                poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
-                            />
+                            <YouTube videoId={keyYoutube} className="custom-video" />
                         </div>
                     </div>
                 </div>
@@ -127,28 +162,46 @@ function MovieDetails() {
                     <div className=" container flex flex-row flex-wrap content-center items-center mx-auto pl-[15px] pr-[15px]">
                         <div className="content-head">
                             <h2 className="text-4xl text-[#fff] leading-[100%] mt-[25px] mb-[10px]">New items</h2>
-                            <Navbar className="ml-0">
-                                <NavbarItem
-                                    activeNewItem
-                                    onClick={() => {
-                                        setToggleState(1)
-                                    }}
-                                    fontThin
-                                    className={`hover:text-[#fff] h-[50px] mr-[30px] text-[#ffffff80]
-                                        ${toggleState === 1 && 'active'} `}
-                                    title="COMMENTS"
-                                />
-                                <NavbarItem
-                                    activeNewItem
-                                    onClick={() => {
-                                        setToggleState(2)
-                                    }}
-                                    fontThin
-                                    className={`hover:text-[#fff] h-[50px] mr-[30px] text-[#ffffff80]
-                                        ${toggleState === 2 && 'active'} `}
-                                    title="REVIEWS"
-                                />
-                            </Navbar>
+                            <div className="flex items-center">
+                                <p
+                                    onClick={handleToggleTab}
+                                    className="title-nav-tab flex items-center md:hidden text-[#fff] h-[50px]"
+                                >
+                                    {(toggleState === 1 && 'COMMENTS') || (toggleState === 2 && 'REVIEWS')}
+                                </p>
+                                <span
+                                    onClick={handleToggleTab}
+                                    className={`toggle-nav-tabs block w-4 h-4 relative ${
+                                        toggleStateTab ? 'active' : ''
+                                    } `}
+                                ></span>
+                            </div>
+                            <div className="details-content-tabs">
+                                <Navbar className={`${toggleStateTab ? 'active' : ''} ml-0`}>
+                                    <NavbarItem
+                                        activeNewItem
+                                        onClick={() => {
+                                            setToggleState(1)
+                                            setToggleStateTab(false)
+                                        }}
+                                        fontThin
+                                        className={`hover:text-[#fff] h-10 md:h-[50px] mr-[30px] text-[#ffffff80]
+                                            ${toggleState === 1 && 'active custom-nav'} `}
+                                        title="COMMENTS"
+                                    />
+                                    <NavbarItem
+                                        activeNewItem
+                                        onClick={() => {
+                                            setToggleState(2)
+                                            setToggleStateTab(false)
+                                        }}
+                                        fontThin
+                                        className={`hover:text-[#fff] h-10 md:h-[50px] mr-[30px] text-[#ffffff80]
+                                            ${toggleState === 2 && 'active custom-nav'} `}
+                                        title="REVIEWS"
+                                    />
+                                </Navbar>
+                            </div>
                         </div>
                     </div>
                 </div>

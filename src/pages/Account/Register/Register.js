@@ -4,7 +4,7 @@ import images from '~/assets/images'
 import Button from '~/components/Button/Button'
 import config from '~/config'
 import '~/pages/Account/Account.scss'
-import storage from "~/store/storage"
+import storage from '~/store/storage'
 
 function Register() {
     const [toggleChecked, setToggleChecked] = useState(true)
@@ -65,11 +65,10 @@ function Register() {
                             }
                             return values
                         }, {})
-                        formValues.mode = "off"
-                        formValues.id = "041001"
-                        alert("Sign Up Success! Please login")
+                        formValues.mode = 'off'
+                        formValues.id = '041001'
+                        alert('Sign Up Success! Please login')
                         storage.set(formValues)
-                        
                     }
                 }
                 //Luu lai cac Rule cho moi input
@@ -142,8 +141,11 @@ function Register() {
                     mx-auto pl-[15px] pr-[15px] "
                 >
                     <div className="sign-content flex justify-center items-center w-full min-h-[100vh] py-[40px] ">
-                        <form className="sign__form px-[60px] py-[50px]" action="#" ref={formRef}>
-                            <a className="logo flex justify-center items-center mb-[50px] " href={config.routes.home}>
+                        <form className="sign__form px-5 py-10 xl:px-[60px] xl:py-[50px]" action="#" ref={formRef}>
+                            <a
+                                className="logo flex justify-center items-center mb-[40px] xl:mb-[50px] "
+                                href={config.routes.home}
+                            >
                                 <img className="max-w-[127px]" src={images.logo} alt="img" />
                             </a>
                             <div className="form-group">
@@ -170,9 +172,9 @@ function Register() {
                                 />
                                 <span className="form-message text-[12px] text-primary mt-[4px]"></span>
                             </div>
-                            <div className="form-group form-group__checkbox mt-[2px]">
+                            <div className="form-group form-group__checkbox mt-[2px] ">
                                 <input
-                                    className="form-checkbox"
+                                    className="form-checkbox ml-[1px]"
                                     id="privacy-policy"
                                     type="checkbox"
                                     // name="privacy-policy"

@@ -11,7 +11,7 @@ function Card({ data = {}, genresName }) {
             <CardImage
                 src={` https://image.tmdb.org/t/p/original${data.poster_path}`}
                 alt={data.name}
-                to={config.routes.detail}
+                to={`${config.routes.detail}/${data.id}`}
             />
             <div className="text-[white]">
                 <Link to={''}>
