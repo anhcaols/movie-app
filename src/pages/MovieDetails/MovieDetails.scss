@@ -167,11 +167,18 @@
 
 
 //responsive
+@media (max-width: 960px) {
+    .info-desc-details p {
+        min-height: 100px;
+        height: 100px;
+        max-height: 100px;
+    }
+    .info-desc-details.more p {
+        height: 150px;
+        max-height: 150px;
+    }
+}
 @media (max-width: 719px) {
-    // .custom-video {
-    //     height: 216px;
-    // }
-
     .details-content-tabs {
         .navbar.active {
             display: flex;
