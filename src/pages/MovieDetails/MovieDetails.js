@@ -147,7 +147,7 @@ function MovieDetails() {
                                 <div className={`${toggleDesc && 'more'} info-desc-details mt-[13px] mb-0`}>
                                     <p>{details.overview}</p>
                                 </div>
-                                <div className="more-desc flex justify-center" onClick={handleMoreDesc}>
+                                <div className="hidden md:flex more-desc flex justify-center" onClick={handleMoreDesc}>
                                     <MoreMenuIcon className="w-[22px] cursor-pointer fill-text hover:fill-[#ff55a5]" />
                                 </div>
                             </div>

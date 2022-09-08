@@ -169,9 +169,9 @@
 //responsive
 @media (max-width: 960px) {
     .info-desc-details p {
-        min-height: 100px;
-        height: 100px;
-        max-height: 100px;
+        min-height: auto;
+        height: auto;
+        max-height: initial;
     }
     .info-desc-details.more p {
         height: 150px;
