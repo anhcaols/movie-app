@@ -34,27 +34,6 @@ function MovieDetails() {
 
     //Call Api
     useEffect(() => {
-        //Api Movie
-        const fetchApiMovie = async () => {
-            try {
-                const result = await movieService.movie()
-                setListFilm(result)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchApiMovie()
-        // Api Genre Movie
-        const fetchApiGenre = async () => {
-            try {
-                const result = await genresService.genres()
-                setGenres(result)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchApiGenre()
-
         // Api Movie Details
         const fetchApiDetail = async () => {
             try {
@@ -76,7 +55,27 @@ function MovieDetails() {
             }
         }
         fetchApiDetail()
-    }, [idMovie])
+        //Api Movie
+        const fetchApiMovie = async () => {
+            try {
+                const result = await movieService.movie()
+                setListFilm(result)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchApiMovie()
+        // Api Genre Movie
+        const fetchApiGenre = async () => {
+            try {
+                const result = await genresService.genres()
+                setGenres(result)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchApiGenre()
+    }, [])
 
     //handle Events
     const handleToggleTab = () => {
@@ -98,10 +97,12 @@ function MovieDetails() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] z-10 ">
                         <div className="flex flex-col md:flex-row">
                             <div className="img-details w-[250px] xl:w-[210px] flex-shrink-0 mr-[20px]">
-                                <Image
-                                    className="w-full rounded"
-                                    src={`https://image.tmdb.org/t/p/original${details.poster_path}`}
-                                />
+                                {details.poster_path && (
+                                    <Image
+                                        className="w-full rounded"
+                                        src={` https://image.tmdb.org/t/p/original${details.poster_path}`}
+                                    />
+                                )}
                             </div>
                             <div className="card-details mt-[20px] xl:mt-0">
                                 <div className="flex">
