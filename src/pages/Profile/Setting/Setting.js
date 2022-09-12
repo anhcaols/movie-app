@@ -109,7 +109,7 @@ function Setting({ className }) {
                         </div>
                         <Button
                             ref={saveBtnRef}
-                            href={config.routes.profile}
+                            to={config.routes.profile}
                             className="mt-[10px] w-full md:w-[150px]"
                             primary
                             large
