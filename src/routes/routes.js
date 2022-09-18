@@ -14,7 +14,7 @@ export const publicRoutes = [
         component: Home,
     },
     {
-        path: `${config.routes.detail}/:id`,
+        path: config.routes.detail,
         component: MovieDetails,
     },
     {
