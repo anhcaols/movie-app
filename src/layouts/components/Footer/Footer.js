@@ -98,7 +98,7 @@ function Footer() {
                     <h4 className="text-[#ffffff99] text-sm pb-[20px] xl:pb-0">
                         © FlixGo, 2018—2022. Create by{' '}
                         <Link className="hover:underline" to={'/'}>
-                            Dmitry Volkov
+                            Cao Anh
                         </Link>
                         .
                     </h4>
