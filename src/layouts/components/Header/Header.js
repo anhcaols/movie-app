@@ -100,7 +100,7 @@ function Header() {
                                                     <SubnavItem
                                                         onClick={handleCloseSearch}
                                                         title="Profile"
-                                                        to={
+                                                        href={
                                                             userCurrent === true
                                                                 ? config.routes.profile
                                                                 : config.routes.login
@@ -169,7 +169,7 @@ function Header() {
                                                     <Subnav>
                                                         <SubnavItem
                                                             title="View Profile"
-                                                            to={config.routes.profile}
+                                                            href={config.routes.profile}
                                                             icon={<UserIcon />}
                                                         />
                                                         <SubnavItem
