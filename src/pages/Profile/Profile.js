@@ -54,7 +54,7 @@ function Profile() {
                                 <Image className="w-[50px] h-[50px] mr-[15px] rounded-full" src="" alt="img" />
                                 <div>
                                     <h4 className="text-[#fff] font-medium mb-[2px]">{storage.get().name}</h4>
-                                    <p className="text-[#ffffff80] text-[14px]">FlixGo ID: {storage.get().id}</p>
+                                    <p className="text-[#ffffff80] text-[14px]">FlixGo ID: 041001</p>
                                 </div>
                             </div>
                             <div className="flex items-center mt-[10px]">
