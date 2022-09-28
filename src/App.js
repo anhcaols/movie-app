@@ -4,9 +4,11 @@ import { privateRoutes, publicRoutes } from './routes'
 import MainLayout from './layouts/MainLayout'
 import { Fragment } from 'react'
 function App() {
+    const routes = [...publicRoutes, ...privateRoutes]
+
     return (
         <Routes>
-            {publicRoutes.map((route, index) => {
+            {routes.map((route, index) => {
                 let Layout = MainLayout
                 if (route.layout === null) {
                     Layout = Fragment
@@ -24,7 +26,7 @@ function App() {
                     />
                 )
             })}
-            {privateRoutes.map((route, index) => {
+            {/* {privateRoutes.map((route, index) => {
                 let Layout = MainLayout
                 if (route.layout === null) {
                     Layout = Fragment
@@ -41,7 +43,7 @@ function App() {
                         }
                     />
                 )
-            })}
+            })} */}
         </Routes>
     )
 }
