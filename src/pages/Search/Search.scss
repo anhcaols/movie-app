@@ -14,12 +14,12 @@
     animation: fadeTopBottom 0.4s ease;
     background-color: #2b2b31;
     box-shadow: 0 5px 25px 0 rgb(0 0 0 / 30%);
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     z-index: 1;
 }
 
 // animate
-@keyframes fadeTopBottom{
+@keyframes fadeTopBottom {
     from {
         bottom: 0;
         opacity: 0;

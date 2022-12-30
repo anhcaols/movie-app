@@ -1,9 +1,10 @@
-import axios from 'axios'
 import { useEffect, useRef, useState } from 'react'
 
 import Button from '~/components/Button/Button'
 import Card from '~/components/Card/Card'
 import { useDebounce } from '~/hooks'
+import * as searchService from '~/services/searchService'
+
 import './Search.scss'
 
 function Search() {
@@ -25,10 +26,8 @@ function Search() {
     useEffect(() => {
         const fetchApi = async () => {
             try {
-                const result = await axios.get(
-                    `https://api.themoviedb.org/3/search/movie?api_key=8e6ce93930533e9735da28b27d751706&language=en-US&query=${debouncedValue}&page=1&include_adult=false`,
-                )
-                setSearchResult(result.data.results)
+                const result = await searchService.search(debouncedValue)
+                setSearchResult(result)
                 setMoreBtn(true)
             } catch (error) {
                 console.log(error)
@@ -42,6 +41,7 @@ function Search() {
             setMoreBtn(false)
             return
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [debouncedValue])
 
     // results search
@@ -85,13 +85,7 @@ function Search() {
             </div>
 
             <div className="search-wrapper ">
-                <div
-                    ref={searchImage}
-                    className="search-image relative"
-                    style={{
-                        backgroundImage: `url(https://dmitryvolkov.me/demo/flixgo2.0/main/img/section/section.jpg)`,
-                    }}
-                >
+                <div ref={searchImage} className="search-image relative bg-bgd ">
                     <div className="search-content flex justify-center">
                         <div
                             ref={searchContainer}

@@ -12,7 +12,7 @@ import './MovieDetails.scss'
 import Card from '~/components/Card/Card'
 import * as movieService from '~/services/movieService'
 import * as genresService from '~/services/genresService'
-// import * as movieDetailService from '~/services/movieDetailService'
+import * as movieDetailService from '~/services/movieDetailService'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
@@ -37,12 +37,10 @@ function MovieDetails() {
         // Api Movie Details
         const fetchApiDetail = async () => {
             try {
-                // const result = await movieDetailService.movieDetail()
-                const result = await axios.get(
-                    `https://api.themoviedb.org/3/movie/${idMovie}?api_key=e9e9d8da18ae29fc430845952232787c&append_to_response=videos`,
-                )
-                setDetails(result.data)
-                const video = result.data.videos.results
+                const result = await movieDetailService.movieDetail(idMovie)
+                setDetails(result)
+                const video = result.videos.results
+                    // eslint-disable-next-line array-callback-return
                     .map((item) => {
                         if (item.type === 'Trailer') return item.key
                     })
